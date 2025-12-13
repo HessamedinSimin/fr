@@ -235,10 +235,6 @@
   <!-- Hero Section with Triple Pendulum -->
   <section class="hero">
     <canvas id="pendulumCanvas"></canvas>
-    <div class="hero-content">
-      <h1>Your Content Looks Amateur.</h1>
-      <p class="subtitle">You've got the expertise. They've got the views.</p>
-    </div>
   </section>
 
   <!-- Problem Section -->
@@ -440,9 +436,15 @@
       for (let i = 1; i < point.trail.length; i++) {
         ctx.lineTo(point.trail[i].x, point.trail[i].y);
       }
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
+      const gradient = ctx.createLinearGradient(point.trail[0].x, point.trail[0].y, point.x, point.y);
+      gradient.addColorStop(0, color.replace('0.5)', '0.1)'));
+      gradient.addColorStop(1, color);
+      ctx.strokeStyle = gradient;
+      ctx.lineWidth = 2;
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = color;
       ctx.stroke();
+      ctx.shadowBlur = 0;
     }
 
     function draw() {
@@ -454,47 +456,85 @@
       drawTrail(p2, "rgba(120,180,255,0.5)");
       drawTrail(p3, "rgba(160,255,180,0.5)");
 
-      // Ropes
-      ctx.strokeStyle = "#666";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
+      // Ropes with gradient
       sticks.forEach(s => {
+        const gradient = ctx.createLinearGradient(s.p0.x, s.p0.y, s.p1.x, s.p1.y);
+        gradient.addColorStop(0, '#888');
+        gradient.addColorStop(1, '#444');
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 3;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.beginPath();
         ctx.moveTo(s.p0.x, s.p0.y);
         ctx.lineTo(s.p1.x, s.p1.y);
+        ctx.stroke();
+        ctx.shadowBlur = 0;
       });
-      ctx.stroke();
 
-      // Word boxes
+      // Word boxes with glass effect
       labels.forEach((l, i) => {
         const x = l.point.x;
         const y = l.point.y;
         
-        // Box background
-        ctx.fillStyle = "rgba(59, 130, 246, 0.15)";
-        ctx.strokeStyle = "rgba(59, 130, 246, 0.6)";
-        ctx.lineWidth = 2;
-        
-        const padding = 15;
+        const padding = 20;
+        ctx.font = "bold 20px -apple-system, system-ui, sans-serif";
         const textWidth = ctx.measureText(l.text).width;
         const boxWidth = textWidth + padding * 2;
-        const boxHeight = 50;
+        const boxHeight = 60;
         
-        ctx.fillRect(x - boxWidth/2, y - boxHeight/2, boxWidth, boxHeight);
-        ctx.strokeRect(x - boxWidth/2, y - boxHeight/2, boxWidth, boxHeight);
+        // Glass background with gradient
+        const bgGradient = ctx.createLinearGradient(x - boxWidth/2, y - boxHeight/2, x - boxWidth/2, y + boxHeight/2);
+        bgGradient.addColorStop(0, "rgba(59, 130, 246, 0.25)");
+        bgGradient.addColorStop(1, "rgba(59, 130, 246, 0.1)");
         
-        // Text
-        ctx.fillStyle = "#3b82f6";
-        ctx.font = "bold 18px -apple-system, system-ui, sans-serif";
+        ctx.fillStyle = bgGradient;
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(59, 130, 246, 0.5)';
+        
+        // Rounded rectangle
+        const radius = 12;
+        ctx.beginPath();
+        ctx.moveTo(x - boxWidth/2 + radius, y - boxHeight/2);
+        ctx.lineTo(x + boxWidth/2 - radius, y - boxHeight/2);
+        ctx.arcTo(x + boxWidth/2, y - boxHeight/2, x + boxWidth/2, y - boxHeight/2 + radius, radius);
+        ctx.lineTo(x + boxWidth/2, y + boxHeight/2 - radius);
+        ctx.arcTo(x + boxWidth/2, y + boxHeight/2, x + boxWidth/2 - radius, y + boxHeight/2, radius);
+        ctx.lineTo(x - boxWidth/2 + radius, y + boxHeight/2);
+        ctx.arcTo(x - boxWidth/2, y + boxHeight/2, x - boxWidth/2, y + boxHeight/2 - radius, radius);
+        ctx.lineTo(x - boxWidth/2, y - boxHeight/2 + radius);
+        ctx.arcTo(x - boxWidth/2, y - boxHeight/2, x - boxWidth/2 + radius, y - boxHeight/2, radius);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Border with gradient
+        const borderGradient = ctx.createLinearGradient(x - boxWidth/2, y - boxHeight/2, x + boxWidth/2, y + boxHeight/2);
+        borderGradient.addColorStop(0, "rgba(59, 130, 246, 0.8)");
+        borderGradient.addColorStop(1, "rgba(147, 197, 253, 0.6)");
+        ctx.strokeStyle = borderGradient;
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+        
+        ctx.shadowBlur = 0;
+        
+        // Text with glow
+        ctx.fillStyle = "#fff";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(59, 130, 246, 0.8)';
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(l.text, x, y);
+        ctx.shadowBlur = 0;
       });
 
-      // Anchor point
+      // Anchor point with glow
       ctx.beginPath();
-      ctx.arc(p0.x, p0.y, 5, 0, Math.PI * 2);
+      ctx.arc(p0.x, p0.y, 6, 0, Math.PI * 2);
       ctx.fillStyle = "#fff";
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
       ctx.fill();
+      ctx.shadowBlur = 0;
     }
 
     function update() {
