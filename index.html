@@ -85,24 +85,6 @@
       overflow: hidden;
     }
 
-    .problem-section::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(239,68,68,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      top: -250px;
-      right: -250px;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(-50px, 100px) rotate(120deg); }
-      66% { transform: translate(50px, -50px) rotate(240deg); }
-    }
-
     .problem-text {
       max-width: 800px;
       margin: 0 auto;
@@ -415,9 +397,9 @@
     const p3 = new Point(centerX - 60, startY + 480);
 
     const sticks = [
-      new Stick(p0, p1, 160),
-      new Stick(p1, p2, 160),
-      new Stick(p2, p3, 160)
+      new Stick(p0, p1, 140),
+      new Stick(p1, p2, 140),
+      new Stick(p2, p3, 140)
     ];
 
     const points = [p0, p1, p2, p3];
