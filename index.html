@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hesam Simin</title>
-  <meta name="description" content="Transform amateur content into authority. Video production for B2B coaches who want inbound leads." />
-  <meta name="keywords" content="hesamsimin, hesam simin, hesamedin simin, video production, b2b content" />
-  <meta name="author" content="Hesam Simin" />
   <style>
     * {
       margin: 0;
@@ -20,7 +17,6 @@
       color: #e5e5e5;
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background-color 0.8s ease;
     }
 
     .hero {
@@ -31,29 +27,24 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      background: #0a0a0a;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    #pendulumCanvas {
       position: absolute;
-      width: 150%;
-      height: 150%;
-      background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.3; }
-      50% { transform: scale(1.1); opacity: 0.5; }
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 10;
       max-width: 900px;
+      margin-top: 500px;
     }
 
     h1 {
@@ -65,46 +56,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .subtitle {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       margin-bottom: 3rem;
       color: #9ca3af;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 1.2rem 3rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 40px rgba(59,130,246,0.3);
-      animation: fadeInUp 0.8s ease-out 0.4s both;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(59,130,246,0.5);
     }
 
     .section {
@@ -241,6 +198,26 @@
       color: #e5e5e5;
     }
 
+    .cta-button {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(59,130,246,0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(59,130,246,0.5);
+    }
+
     .final-cta-section {
       background: #0a0a0a;
       text-align: center;
@@ -255,8 +232,9 @@
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Hero Section with Triple Pendulum -->
   <section class="hero">
+    <canvas id="pendulumCanvas"></canvas>
     <div class="hero-content">
       <h1>Your Content Looks Amateur.</h1>
       <p class="subtitle">You've got the expertise. They've got the views.</p>
@@ -363,28 +341,174 @@
       });
     });
 
-    // Background color change on scroll
-    const sections = document.querySelectorAll('section');
-    const colors = [
-      '#0a0a0a', // hero
-      '#1a0f0f', // problem - dark red tint
-      '#0f1419', // transform - dark blue tint
-      '#0f0a14', // pricing - dark purple tint
-      '#0a0a0a'  // final cta
+    // Triple Pendulum with Physics
+    const canvas = document.getElementById("pendulumCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = 600;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const gravity = 0.6;
+    const friction = 0.999;
+    const constraintIterations = 8;
+
+    class Point {
+      constructor(x, y, pinned = false) {
+        this.x = x;
+        this.y = y;
+        this.oldx = x;
+        this.oldy = y;
+        this.pinned = pinned;
+        this.trail = [];
+      }
+
+      update() {
+        if (this.pinned) return;
+
+        const vx = (this.x - this.oldx) * friction;
+        const vy = (this.y - this.oldy) * friction;
+
+        this.oldx = this.x;
+        this.oldy = this.y;
+
+        this.x += vx;
+        this.y += vy + gravity;
+
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > 80) this.trail.shift(); // Less trail
+      }
+    }
+
+    class Stick {
+      constructor(p0, p1, length) {
+        this.p0 = p0;
+        this.p1 = p1;
+        this.length = length;
+      }
+
+      update() {
+        const dx = this.p1.x - this.p0.x;
+        const dy = this.p1.y - this.p0.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const diff = this.length - dist;
+        const percent = diff / dist / 2;
+        const offx = dx * percent;
+        const offy = dy * percent;
+
+        if (!this.p0.pinned) {
+          this.p0.x -= offx;
+          this.p0.y -= offy;
+        }
+        if (!this.p1.pinned) {
+          this.p1.x += offx;
+          this.p1.y += offy;
+        }
+      }
+    }
+
+    const centerX = canvas.width / 2;
+    const startY = 100;
+
+    const p0 = new Point(centerX, startY, true);
+    const p1 = new Point(centerX + 140, startY + 160);
+    const p2 = new Point(centerX + 80, startY + 320);
+    const p3 = new Point(centerX - 60, startY + 480);
+
+    const sticks = [
+      new Stick(p0, p1, 160),
+      new Stick(p1, p2, 160),
+      new Stick(p2, p3, 160)
     ];
 
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-      
-      sections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          document.body.style.backgroundColor = colors[index];
-        }
+    const points = [p0, p1, p2, p3];
+
+    const labels = [
+      { point: p1, text: "Creative Execution" },
+      { point: p2, text: "Right Topic" },
+      { point: p3, text: "Reach & Engagement" }
+    ];
+
+    function drawTrail(point, color) {
+      if (point.trail.length < 2) return;
+
+      ctx.beginPath();
+      ctx.moveTo(point.trail[0].x, point.trail[0].y);
+      for (let i = 1; i < point.trail.length; i++) {
+        ctx.lineTo(point.trail[i].x, point.trail[i].y);
+      }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    function draw() {
+      ctx.fillStyle = "rgba(10, 10, 10, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Trails
+      drawTrail(p1, "rgba(255,120,120,0.5)");
+      drawTrail(p2, "rgba(120,180,255,0.5)");
+      drawTrail(p3, "rgba(160,255,180,0.5)");
+
+      // Ropes
+      ctx.strokeStyle = "#666";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      sticks.forEach(s => {
+        ctx.moveTo(s.p0.x, s.p0.y);
+        ctx.lineTo(s.p1.x, s.p1.y);
       });
-    });
+      ctx.stroke();
+
+      // Word boxes
+      labels.forEach((l, i) => {
+        const x = l.point.x;
+        const y = l.point.y;
+        
+        // Box background
+        ctx.fillStyle = "rgba(59, 130, 246, 0.15)";
+        ctx.strokeStyle = "rgba(59, 130, 246, 0.6)";
+        ctx.lineWidth = 2;
+        
+        const padding = 15;
+        const textWidth = ctx.measureText(l.text).width;
+        const boxWidth = textWidth + padding * 2;
+        const boxHeight = 50;
+        
+        ctx.fillRect(x - boxWidth/2, y - boxHeight/2, boxWidth, boxHeight);
+        ctx.strokeRect(x - boxWidth/2, y - boxHeight/2, boxWidth, boxHeight);
+        
+        // Text
+        ctx.fillStyle = "#3b82f6";
+        ctx.font = "bold 18px -apple-system, system-ui, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(l.text, x, y);
+      });
+
+      // Anchor point
+      ctx.beginPath();
+      ctx.arc(p0.x, p0.y, 5, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+    }
+
+    function update() {
+      points.forEach(p => p.update());
+
+      for (let i = 0; i < constraintIterations; i++) {
+        sticks.forEach(s => s.update());
+      }
+
+      draw();
+      requestAnimationFrame(update);
+    }
+
+    update();
   </script>
 </body>
 </html>
