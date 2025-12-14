@@ -1,536 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hesam Simin</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesamedin Simin - Content Execution Infrastructure for B2B Founders</title>
+    <meta name="description" content="Hesamedin Simin (Hesam Simin - حسام سیمین) runs content execution infrastructure for B2B founders. Transform rough talking points into professional short-form videos without meetings.">
+    <meta name="keywords" content="Hesamedin Simin, Hesam Simin, حسام سیمین, B2B content execution, video content operator, content infrastructure, short-form video production, B2B founder content, async content workflow">
+    <meta name="author" content="Hesamedin Simin">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #e5e5e5;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.65;
+            color: #0a0a0a;
+            background: #fafafa;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      background: #0a0a0a;
-      position: relative;
-      overflow: hidden;
-    }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
-    #pendulumCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+        section {
+            padding: 96px 0;
+            background: #ffffff;
+            margin-bottom: 2px;
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
-      margin-top: 500px;
-    }
+        section:last-child {
+            margin-bottom: 0;
+        }
 
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
-      background: linear-gradient(135deg, #fff 0%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        h1 {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 40px;
+            letter-spacing: -0.03em;
+            color: #000000;
+        }
 
-    .subtitle {
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      margin-bottom: 3rem;
-      color: #9ca3af;
-    }
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+            color: #000000;
+        }
 
-    .section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        h3 {
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
 
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #fff;
-    }
+        p {
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            max-width: 620px;
+        }
 
-    .problem-section {
-      background: #0a0a0a;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+        ul {
+            list-style: none;
+            margin-bottom: 28px;
+        }
 
-    .problem-text {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #9ca3af;
-      position: relative;
-      z-index: 1;
-    }
+        ul li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
 
-    .problem-text strong {
-      color: #ef4444;
-      font-size: 1.3rem;
-    }
+        ul li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #666666;
+        }
 
-    .transform-section {
-      background: #0a0a0a;
-      position: relative;
-      overflow: hidden;
-    }
+        .cta-button {
+            display: inline-block;
+            padding: 16px 36px;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: -0.01em;
+        }
 
-    .transform-section::after {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      bottom: -200px;
-      left: -200px;
-      animation: float 15s ease-in-out infinite reverse;
-    }
+        .cta-button:hover {
+            background: #1a1a1a;
+            transform: translateY(-1px);
+        }
 
-    .comparison {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-      position: relative;
-      z-index: 1;
-    }
+        .cta-button:active {
+            transform: translateY(0);
+        }
 
-    .before, .after {
-      padding: 2rem;
-      border-radius: 12px;
-    }
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 96px;
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
-    .before {
-      background: rgba(239,68,68,0.1);
-      border: 2px solid #ef4444;
-    }
+        #pendulumCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-    .after {
-      background: rgba(34,197,94,0.1);
-      border: 2px solid #22c55e;
-    }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            margin-top: 450px;
+        }
 
-    .comparison h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: #e5e5e5;
+        }
 
-    .before h3 { color: #ef4444; }
-    .after h3 { color: #22c55e; }
+        .hero h1 {
+            color: #ffffff;
+        }
 
-    .comparison ul {
-      list-style: none;
-    }
+        .modes {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
 
-    .comparison li {
-      padding: 0.8rem 0;
-      font-size: 1.05rem;
-    }
+        .mode-card {
+            padding: 32px;
+            border: 1px solid #e8e8e8;
+            background: #fcfcfc;
+            transition: border-color 0.2s ease;
+        }
 
-    .pricing-section {
-      background: #0a0a0a;
-      text-align: center;
-    }
+        .mode-card:hover {
+            border-color: #d0d0d0;
+        }
 
-    .pricing-box {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(59,130,246,0.3);
-      border-radius: 16px;
-      padding: 3rem;
-      max-width: 800px;
-      margin: 2rem auto;
-    }
+        .mode-card h3 {
+            margin-bottom: 20px;
+        }
 
-    .pricing-box p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #e5e5e5;
-    }
+        .not-list {
+            margin-bottom: 24px;
+        }
 
-    .cta-button {
-      display: inline-block;
-      padding: 1.2rem 3rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 40px rgba(59,130,246,0.3);
-    }
+        .footer-cta {
+            text-align: center;
+            padding: 120px 0;
+            background: #f5f5f5;
+        }
 
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(59,130,246,0.5);
-    }
+        .footer-cta h2 {
+            margin-bottom: 12px;
+        }
 
-    .final-cta-section {
-      background: #0a0a0a;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
+        .footer-cta p {
+            margin: 0 auto 40px;
+            color: #3a3a3a;
+            font-size: 18px;
+        }
 
-    @media (max-width: 768px) {
-      .comparison {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        @media (max-width: 640px) {
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 72px 0;
+            }
+
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 72px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .footer-cta {
+                padding: 96px 0;
+            }
+
+            .mode-card {
+                padding: 24px;
+            }
+
+            .cta-button {
+                padding: 14px 32px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Hero Section with Triple Pendulum -->
-  <section class="hero">
-    <canvas id="pendulumCanvas"></canvas>
-  </section>
+    <section class="hero">
+        <canvas id="pendulumCanvas"></canvas>
+        <div class="container">
+            <h1>I run the content execution layer for B2B founders.</h1>
+            <p>You already have ideas.<br>
+            You already talk on camera.<br>
+            I take rough talking points and return ready-to-post short-form videos, consistently, asynchronously, without meetings.</p>
+            <p>This is not creative help.<br>
+            This is infrastructure.</p>
+            <a href="#diagnostic" class="cta-button">Book a 12-minute diagnostic</a>
+        </div>
+    </section>
 
-  <!-- Problem Section -->
-  <section class="section problem-section">
-    <h2 class="section-title">The Real Problem</h2>
-    <div class="problem-text">
-      <p style="margin-bottom: 2rem;">
-        <strong>"Hey guys, my name is..."</strong> = instant scroll.
-      </p>
-      <p style="margin-bottom: 2rem;">
-        <strong>No hook</strong> = invisible. Bad editing = amateur hour.
-      </p>
-      <p style="margin-bottom: 2rem;">
-        You're spending <strong>15-20 hours a week</strong> on content when you should be coaching and closing sales.
-      </p>
-      <p style="font-size: 1.3rem; font-weight: 700; color: #fff; margin-top: 3rem;">
-        Meanwhile, people half as smart are 10x more visible because their content doesn't look like a Zoom recording.
-      </p>
-    </div>
-  </section>
+    <section>
+        <div class="container">
+            <h2>Why Most Founder Content Underperforms</h2>
+            <p>It's not a creativity problem.<br>
+            It's an execution problem.</p>
+            <p>Most videos fail because:</p>
+            <ul>
+                <li>the hook leaks attention</li>
+                <li>the message has no structure</li>
+                <li>delivery sounds like a Zoom call</li>
+                <li>posting happens randomly</li>
+            </ul>
+        </div>
+    </section>
 
-  <!-- Transformation Section -->
-  <section class="section transform-section">
-    <h2 class="section-title">What Changes</h2>
-    
-    <div class="comparison">
-      <div class="before">
-        <h3>BEFORE:</h3>
-        <ul>
-          <li>❌ "Hey guys, my name is..." (instant skip)</li>
-          <li>❌ No hook, no structure</li>
-          <li>❌ 15 hours/week editing</li>
-          <li>❌ 11 likes per post</li>
-          <li>❌ Professor mode = putting people to sleep</li>
-        </ul>
-      </div>
+    <section>
+        <div class="container">
+            <h2>What You Actually Get</h2>
+            
+            <h3>Inputs:</h3>
+            <ul>
+                <li>voice notes, Looms, or rough clips</li>
+            </ul>
 
-      <div class="after">
-        <h3>AFTER:</h3>
-        <ul>
-          <li>✅ Hooks that stop the scroll</li>
-          <li>✅ Professional editing (looks like you have a team)</li>
-          <li>✅ 80% less time, 3x the results</li>
-          <li>✅ Inbound leads from content</li>
-          <li>✅ Social media language that converts</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <h3>Outputs:</h3>
+            <ul>
+                <li>rewritten hooks</li>
+                <li>clean, professional short-form edits</li>
+                <li>clear structure (hook → idea → close)</li>
+                <li>captions aligned to the video</li>
+            </ul>
+        </div>
+    </section>
 
-  <!-- Pricing/How We Work Section -->
-  <section class="section pricing-section">
-    <h2 class="section-title">How We Work</h2>
-    
-    <div class="pricing-box">
-      <p style="margin-bottom: 2rem;">
-        Happy to share numbers, but I don't know how big your problem is yet.
-      </p>
-      <p style="margin-bottom: 2rem;">
-        Some clients need simple script feedback. Others need their entire profile rebuilt from the ground up.
-      </p>
-      <p style="font-weight: 700; font-size: 1.3rem; color: #3b82f6;">
-        Let's talk success metrics first, then we'll figure out what you actually need.
-      </p>
-    </div>
-  </section>
+    <section>
+        <div class="container">
+            <h2>Operating Modes</h2>
+            <div class="modes">
+                <div class="mode-card">
+                    <h3>Execution Mode</h3>
+                    <ul>
+                        <li>async workflow</li>
+                        <li>predictable output</li>
+                        <li>minimal back-and-forth</li>
+                    </ul>
+                </div>
+                <div class="mode-card">
+                    <h3>Rebuild Mode</h3>
+                    <ul>
+                        <li>hook patterns rebuilt</li>
+                        <li>structure installed</li>
+                        <li>profile positioning cleaned up</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Final CTA -->
-  <section class="final-cta-section" id="contact">
-    <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 2rem; color: #fff;">
-      Stop Losing to Coaches Half as Good as You
-    </h2>
-    
-    <p style="font-size: 1.2rem; color: #9ca3af; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-      I'm Hesamedin. I've spent years in digital marketing, video production, and SEO. Now I help B2B coaches transform amateur content into authority.
-    </p>
-    
-    <p style="font-size: 1.1rem; color: #9ca3af; margin-bottom: 3rem;">
-      See my work: <a href="https://www.linkedin.com/in/hessamedin-simin-0aa956352" style="color: #3b82f6; text-decoration: none;">linkedin.com/in/hesamedin-simin</a>
-    </p>
-    
-    <a href="https://www.linkedin.com/in/hessamedin-simin-0aa956352" class="cta-button" style="font-size: 1.3rem; padding: 1.3rem 3.5rem;">
-      Book 12-Minute Call
-    </a>
-    
-    <p style="margin-top: 1.5rem; font-size: 1rem; color: #9ca3af;">
-      I'll give you 3 fixes for your content. Free. No pitch.
-    </p>
-  </section>
+    <section>
+        <div class="container">
+            <h2>What This Is NOT</h2>
+            <ul class="not-list">
+                <li>Not a growth guarantee</li>
+                <li>Not a lead-gen promise</li>
+                <li>Not trend chasing</li>
+                <li>Not brainstorming sessions</li>
+            </ul>
+        </div>
+    </section>
 
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    <section>
+        <div class="container">
+            <h2>Who This Fits</h2>
+            <ul>
+                <li>B2B founders & coaches</li>
+                <li>Already selling</li>
+                <li>Already on camera</li>
+                <li>Want content off their plate</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>About</h2>
+            <p>I'm Hesamedin Simin.</p>
+            <p>Background in digital marketing, video production, and SEO.</p>
+            <p>I work as a operator, installing the execution layer behind your content so it runs without attention.</p>
+            <p>No hype.<br>
+            Just output.</p>
+        </div>
+    </section>
+
+    <section class="footer-cta" id="diagnostic">
+        <div class="container">
+            <h2>We decide one thing:</h2>
+            <p>Is your content worth executing, or not worth fixing yet?</p>
+            <a href="https://calendly.com" class="cta-button">Book the 12-minute diagnostic</a>
+        </div>
+    </section>
+
+    <script>
+        // Triple Pendulum with Physics
+        const canvas = document.getElementById("pendulumCanvas");
+        const ctx = canvas.getContext("2d");
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
-      });
-    });
+        window.addEventListener("resize", resize);
+        resize();
 
-    // Triple Pendulum with Physics
-    const canvas = document.getElementById("pendulumCanvas");
-    const ctx = canvas.getContext("2d");
+        const gravity = 0.6;
+        const friction = 0.999;
+        const constraintIterations = 8;
 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = 600;
-    }
-    window.addEventListener("resize", resize);
-    resize();
+        class Point {
+            constructor(x, y, pinned = false) {
+                this.x = x;
+                this.y = y;
+                this.oldx = x;
+                this.oldy = y;
+                this.pinned = pinned;
+                this.trail = [];
+            }
 
-    const gravity = 0.6;
-    const friction = 0.999;
-    const constraintIterations = 8;
+            update() {
+                if (this.pinned) return;
 
-    class Point {
-      constructor(x, y, pinned = false) {
-        this.x = x;
-        this.y = y;
-        this.oldx = x;
-        this.oldy = y;
-        this.pinned = pinned;
-        this.trail = [];
-      }
+                const vx = (this.x - this.oldx) * friction;
+                const vy = (this.y - this.oldy) * friction;
 
-      update() {
-        if (this.pinned) return;
+                this.oldx = this.x;
+                this.oldy = this.y;
 
-        const vx = (this.x - this.oldx) * friction;
-        const vy = (this.y - this.oldy) * friction;
+                this.x += vx;
+                this.y += vy + gravity;
 
-        this.oldx = this.x;
-        this.oldy = this.y;
-
-        this.x += vx;
-        this.y += vy + gravity;
-
-        this.trail.push({ x: this.x, y: this.y });
-        if (this.trail.length > 80) this.trail.shift(); // Less trail
-      }
-    }
-
-    class Stick {
-      constructor(p0, p1, length) {
-        this.p0 = p0;
-        this.p1 = p1;
-        this.length = length;
-      }
-
-      update() {
-        const dx = this.p1.x - this.p0.x;
-        const dy = this.p1.y - this.p0.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const diff = this.length - dist;
-        const percent = diff / dist / 2;
-        const offx = dx * percent;
-        const offy = dy * percent;
-
-        if (!this.p0.pinned) {
-          this.p0.x -= offx;
-          this.p0.y -= offy;
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > 80) this.trail.shift();
+            }
         }
-        if (!this.p1.pinned) {
-          this.p1.x += offx;
-          this.p1.y += offy;
+
+        class Stick {
+            constructor(p0, p1, length) {
+                this.p0 = p0;
+                this.p1 = p1;
+                this.length = length;
+            }
+
+            update() {
+                const dx = this.p1.x - this.p0.x;
+                const dy = this.p1.y - this.p0.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const diff = this.length - dist;
+                const percent = diff / dist / 2;
+                const offx = dx * percent;
+                const offy = dy * percent;
+
+                if (!this.p0.pinned) {
+                    this.p0.x -= offx;
+                    this.p0.y -= offy;
+                }
+                if (!this.p1.pinned) {
+                    this.p1.x += offx;
+                    this.p1.y += offy;
+                }
+            }
         }
-      }
-    }
 
-    const centerX = canvas.width / 2;
-    const startY = 100;
+        const centerX = canvas.width / 2;
+        const startY = 80;
 
-    const p0 = new Point(centerX, startY, true);
-    const p1 = new Point(centerX + 140, startY + 160);
-    const p2 = new Point(centerX + 80, startY + 320);
-    const p3 = new Point(centerX - 60, startY + 480);
+        const p0 = new Point(centerX, startY, true);
+        const p1 = new Point(centerX + 100, startY + 120);
+        const p2 = new Point(centerX + 60, startY + 240);
+        const p3 = new Point(centerX - 40, startY + 360);
 
-    const sticks = [
-      new Stick(p0, p1, 140),
-      new Stick(p1, p2, 140),
-      new Stick(p2, p3, 140)
-    ];
+        const sticks = [
+            new Stick(p0, p1, 100),
+            new Stick(p1, p2, 100),
+            new Stick(p2, p3, 100)
+        ];
 
-    const points = [p0, p1, p2, p3];
+        const points = [p0, p1, p2, p3];
 
-    const labels = [
-      { point: p1, text: "Creative Execution" },
-      { point: p2, text: "Right Topic" },
-      { point: p3, text: "Reach & Engagement" }
-    ];
+        const labels = [
+            { point: p1, text: "Execution Layer" },
+            { point: p2, text: "Clear Structure" },
+            { point: p3, text: "Consistent Output" }
+        ];
 
-    function drawTrail(point, color) {
-      if (point.trail.length < 2) return;
+        function drawTrail(point, color) {
+            if (point.trail.length < 2) return;
 
-      ctx.beginPath();
-      ctx.moveTo(point.trail[0].x, point.trail[0].y);
-      for (let i = 1; i < point.trail.length; i++) {
-        ctx.lineTo(point.trail[i].x, point.trail[i].y);
-      }
-      const gradient = ctx.createLinearGradient(point.trail[0].x, point.trail[0].y, point.x, point.y);
-      gradient.addColorStop(0, color.replace('0.5)', '0.1)'));
-      gradient.addColorStop(1, color);
-      ctx.strokeStyle = gradient;
-      ctx.lineWidth = 2;
-      ctx.shadowBlur = 15;
-      ctx.shadowColor = color;
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-    }
+            ctx.beginPath();
+            ctx.moveTo(point.trail[0].x, point.trail[0].y);
+            for (let i = 1; i < point.trail.length; i++) {
+                ctx.lineTo(point.trail[i].x, point.trail[i].y);
+            }
+            const gradient = ctx.createLinearGradient(point.trail[0].x, point.trail[0].y, point.x, point.y);
+            gradient.addColorStop(0, color.replace('0.5)', '0.1)'));
+            gradient.addColorStop(1, color);
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 2;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = color;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+        }
 
-    function draw() {
-      ctx.fillStyle = "rgba(10, 10, 10, 0.2)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function draw() {
+            ctx.fillStyle = "rgba(10, 10, 10, 0.2)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Trails
-      drawTrail(p1, "rgba(255,120,120,0.5)");
-      drawTrail(p2, "rgba(120,180,255,0.5)");
-      drawTrail(p3, "rgba(160,255,180,0.5)");
+            drawTrail(p1, "rgba(255,255,255,0.3)");
+            drawTrail(p2, "rgba(255,255,255,0.3)");
+            drawTrail(p3, "rgba(255,255,255,0.3)");
 
-      // Ropes with gradient
-      sticks.forEach(s => {
-        const gradient = ctx.createLinearGradient(s.p0.x, s.p0.y, s.p1.x, s.p1.y);
-        gradient.addColorStop(0, '#888');
-        gradient.addColorStop(1, '#444');
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 3;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(0,0,0,0.5)';
-        ctx.beginPath();
-        ctx.moveTo(s.p0.x, s.p0.y);
-        ctx.lineTo(s.p1.x, s.p1.y);
-        ctx.stroke();
-        ctx.shadowBlur = 0;
-      });
+            sticks.forEach(s => {
+                const gradient = ctx.createLinearGradient(s.p0.x, s.p0.y, s.p1.x, s.p1.y);
+                gradient.addColorStop(0, '#666');
+                gradient.addColorStop(1, '#333');
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = 'rgba(0,0,0,0.5)';
+                ctx.beginPath();
+                ctx.moveTo(s.p0.x, s.p0.y);
+                ctx.lineTo(s.p1.x, s.p1.y);
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            });
 
-      // Word boxes with glass effect
-      labels.forEach((l, i) => {
-        const x = l.point.x;
-        const y = l.point.y;
-        
-        const padding = 20;
-        ctx.font = "bold 20px -apple-system, system-ui, sans-serif";
-        const textWidth = ctx.measureText(l.text).width;
-        const boxWidth = textWidth + padding * 2;
-        const boxHeight = 60;
-        
-        // Glass background with gradient
-        const bgGradient = ctx.createLinearGradient(x - boxWidth/2, y - boxHeight/2, x - boxWidth/2, y + boxHeight/2);
-        bgGradient.addColorStop(0, "rgba(59, 130, 246, 0.25)");
-        bgGradient.addColorStop(1, "rgba(59, 130, 246, 0.1)");
-        
-        ctx.fillStyle = bgGradient;
-        ctx.shadowBlur = 20;
-        ctx.shadowColor = 'rgba(59, 130, 246, 0.5)';
-        
-        // Rounded rectangle
-        const radius = 12;
-        ctx.beginPath();
-        ctx.moveTo(x - boxWidth/2 + radius, y - boxHeight/2);
-        ctx.lineTo(x + boxWidth/2 - radius, y - boxHeight/2);
-        ctx.arcTo(x + boxWidth/2, y - boxHeight/2, x + boxWidth/2, y - boxHeight/2 + radius, radius);
-        ctx.lineTo(x + boxWidth/2, y + boxHeight/2 - radius);
-        ctx.arcTo(x + boxWidth/2, y + boxHeight/2, x + boxWidth/2 - radius, y + boxHeight/2, radius);
-        ctx.lineTo(x - boxWidth/2 + radius, y + boxHeight/2);
-        ctx.arcTo(x - boxWidth/2, y + boxHeight/2, x - boxWidth/2, y + boxHeight/2 - radius, radius);
-        ctx.lineTo(x - boxWidth/2, y - boxHeight/2 + radius);
-        ctx.arcTo(x - boxWidth/2, y - boxHeight/2, x - boxWidth/2 + radius, y - boxHeight/2, radius);
-        ctx.closePath();
-        ctx.fill();
-        
-        // Border with gradient
-        const borderGradient = ctx.createLinearGradient(x - boxWidth/2, y - boxHeight/2, x + boxWidth/2, y + boxHeight/2);
-        borderGradient.addColorStop(0, "rgba(59, 130, 246, 0.8)");
-        borderGradient.addColorStop(1, "rgba(147, 197, 253, 0.6)");
-        ctx.strokeStyle = borderGradient;
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
-        
-        ctx.shadowBlur = 0;
-        
-        // Text with glow
-        ctx.fillStyle = "#fff";
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = 'rgba(59, 130, 246, 0.8)';
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(l.text, x, y);
-        ctx.shadowBlur = 0;
-      });
+            labels.forEach((l) => {
+                const x = l.point.x;
+                const y = l.point.y;
+                
+                const padding = 16;
+                ctx.font = "600 16px -apple-system, system-ui, sans-serif";
+                const textWidth = ctx.measureText(l.text).width;
+                const boxWidth = textWidth + padding * 2;
+                const boxHeight = 48;
+                
+                ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+                
+                const radius = 8;
+                ctx.beginPath();
+                ctx.moveTo(x - boxWidth/2 + radius, y - boxHeight/2);
+                ctx.lineTo(x + boxWidth/2 - radius, y - boxHeight/2);
+                ctx.arcTo(x + boxWidth/2, y - boxHeight/2, x + boxWidth/2, y - boxHeight/2 + radius, radius);
+                ctx.lineTo(x + boxWidth/2, y + boxHeight/2 - radius);
+                ctx.arcTo(x + boxWidth/2, y + boxHeight/2, x + boxWidth/2 - radius, y + boxHeight/2, radius);
+                ctx.lineTo(x - boxWidth/2 + radius, y + boxHeight/2);
+                ctx.arcTo(x - boxWidth/2, y + boxHeight/2, x - boxWidth/2, y + boxHeight/2 - radius, radius);
+                ctx.lineTo(x - boxWidth/2, y - boxHeight/2 + radius);
+                ctx.arcTo(x - boxWidth/2, y - boxHeight/2, x - boxWidth/2 + radius, y - boxHeight/2, radius);
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                ctx.shadowBlur = 0;
+                
+                ctx.fillStyle = "#ffffff";
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText(l.text, x, y);
+                ctx.shadowBlur = 0;
+            });
 
-      // Anchor point with glow
-      ctx.beginPath();
-      ctx.arc(p0.x, p0.y, 6, 0, Math.PI * 2);
-      ctx.fillStyle = "#fff";
-      ctx.shadowBlur = 15;
-      ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
+            ctx.beginPath();
+            ctx.arc(p0.x, p0.y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = "#fff";
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
 
-    function update() {
-      points.forEach(p => p.update());
+        function update() {
+            points.forEach(p => p.update());
 
-      for (let i = 0; i < constraintIterations; i++) {
-        sticks.forEach(s => s.update());
-      }
+            for (let i = 0; i < constraintIterations; i++) {
+                sticks.forEach(s => s.update());
+            }
 
-      draw();
-      requestAnimationFrame(update);
-    }
+            draw();
+            requestAnimationFrame(update);
+        }
 
-    update();
-  </script>
+        update();
+    </script>
 </body>
 </html>
