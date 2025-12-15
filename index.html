@@ -1,874 +1,410 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hesamedin Simin - Content Execution Infrastructure for B2B Founders</title>
-  <meta name="description" content="LinkedIn video editing for serious founders, consultants, and creators. Calm authority. Clear delivery. Subtitles that respect your tone." />
-  <meta name="theme-color" content="#0b1220" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <meta name="keywords" content="Hesamedin Simin, Hesam Simin, حسام سیمین, B2B content execution, video content operator, content infrastructure, short-form video production, B2B founder content, async content workflow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesam Simin | Calm Authority Signal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="keywords" content="Hesamedin Simin,HesamedinSimin,HesamSimin, Hesam Simin, حسام سیمین,">
     <meta name="author" content="Hesamedin Simin">
     <style>
-    :root { color-scheme: light; }
-    html { scroll-behavior: smooth; }
-    .noise {
-      background-image:
-        radial-gradient(circle at 20% 10%, rgba(99,102,241,0.10), transparent 45%),
-        radial-gradient(circle at 80% 0%, rgba(20,184,166,0.10), transparent 40%),
-        radial-gradient(circle at 70% 85%, rgba(59,130,246,0.10), transparent 45%),
-        radial-gradient(circle at 10% 90%, rgba(148,163,184,0.10), transparent 40%);
-    }
-    .glass {
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.70);
-    }
-    .ring-soft { box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08), 0 10px 30px rgba(2,6,23,0.08); }
-    .focus-ring:focus { outline: none; box-shadow: 0 0 0 4px rgba(99,102,241,0.25); }
-    .btn {
-      transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
-    }
-    .btn:active { transform: translateY(1px); }
-    .reveal { opacity: 0; transform: translateY(8px); transition: opacity 600ms ease, transform 600ms ease; }
-    .reveal.is-in { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .btn, .reveal { transition: none; }
-    }
-  </style>
+        :root {
+            --neon-green: #00FF41;
+            --dark-bg: #050505;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Dopamine Triggers / Animations */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(0, 255, 65, 0.6); }
+        }
+
+        @keyframes glitch-text {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .neon-border {
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+        }
+
+        .neon-text {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+        }
+
+        .glitch-hover:hover {
+            animation: glitch-text 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: var(--neon-green);
+        }
+
+        .cta-btn {
+            background: var(--neon-green);
+            color: #000;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 20px #fff;
+            transform: scale(1.02);
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
+            transform: rotate(45deg) translate(-100%, -100%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            100% { transform: rotate(45deg) translate(100%, 100%); }
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 65, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        /* Pattern Interrupt Elements */
+        .tape {
+            background-color: #ffff00;
+            color: #000;
+            transform: rotate(-2deg);
+            display: inline-block;
+            padding: 0 10px;
+            font-weight: 900;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-green);
+        }
+        
+        .noise-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/200//svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-200/70 selection:text-slate-900">
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[999] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg ring-soft">Skip to content</a>
+<body class="antialiased relative">
 
-  <!-- Top bar -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 glass">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center ring-soft" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M17 9l4-2v10l-4-2V9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="leading-tight">
-          <p class="text-sm font-semibold">Calm Authority Video</p>
-          <p class="text-xs text-slate-600">LinkedIn editing for serious operators</p>
-        </div>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
-        <a class="hover:text-slate-900" href="#proof">Proof</a>
-        <a class="hover:text-slate-900" href="#system">System</a>
-        <a class="hover:text-slate-900" href="#work">Examples</a>
-        <a class="hover:text-slate-900" href="#faq">FAQ</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <button id="btnSampleTop" class="btn hidden sm:inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 focus-ring" type="button">
-          Get a sample edit
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M9 7H17V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <button id="btnCallTop" class="btn inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 shadow-sm focus-ring" type="button">
-          Book a fit call
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9Z" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </button>
-      </div>
+    <div class="noise-bg"></div>
+    <div class="scanline"></div>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="fixed bottom-4 left-4 right-4 z-50 md:hidden p-1 bg-black/50 backdrop-blur-sm rounded-none">
+        <a href="https://cal.com/hesamedin-simin/30min" class="cta-btn block w-full text-center py-4 text-xl border-2 border-white shadow-[0_0_15px_rgba(0,255,65,0.3)]">
+            INITIALIZE SIGNAL
+        </a>
     </div>
-  </header>
 
-  <main id="main" class="noise">
-    <!-- Hero -->
-    <section class="mx-auto max-w-6xl px-4 pt-12 pb-10 md:pt-16">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 glass px-3 py-1 text-xs text-slate-700 ring-soft">
-            <span class="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
-            Built for founders, consultants, and creators who value credibility
-          </div>
-          <h1 class="mt-5 text-4xl md:text-5xl font-semibold tracking-tight text-slate-900">
-            LinkedIn video that sounds like you.
-            <span class="block text-slate-700">Calm. Clear. Credible.</span>
-          </h1>
-          <div class="mt-5 space-y-3 text-lg text-slate-700">
-            <p>We edit your videos to protect your reputation.</p>
-            <p>Better audio. Better pacing. Subtitles that fit your tone.</p>
-            <p>You stay serious. You show up more often.</p>
-          </div>
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <button id="btnPrimaryHero" class="btn inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-base font-semibold text-white hover:bg-indigo-700 shadow-sm focus-ring" type="button">
-              Book a 15 minute fit call
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9Z" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </button>
-            <button id="btnSecondaryHero" class="btn inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-50 focus-ring" type="button">
-              Get a sample edit
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-mono text-xs text-gray-500 tracking-widest">SYSTEM: HESAM_SIMIN_V1.0</div>
+            <a href="mailto:Hi@HesamSimin.ir" class="font-mono text-xs text-white hover:text-[#00FF41] transition-colors">[CONTACT_DIRECT]</a>
+        </div>
+    </nav>
 
-          <div class="mt-7 grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Operator tone</p>
-              <p class="mt-1 text-xs text-slate-600">No influencer edits</p>
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex flex-col justify-center items-center pt-20 px-4 relative">
+        <div class="max-w-4xl mx-auto text-center z-10">
+            <div class="inline-block px-3 py-1 mb-6 border border-[#00FF41] bg-[#00FF41]/10 rounded-full animate-pulse">
+                <span class="font-mono text-xs text-[#00FF41]">STATUS :: SIGNAL WEAK</span>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Clean captions</p>
-              <p class="mt-1 text-xs text-slate-600">Readable and calm</p>
+            
+            <h1 class="text-5xl md:text-8xl font-black leading-tight tracking-tighter mb-8 text-white">
+                YOUR THINKING<br>
+                DESERVES BETTER<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF41] to-white glitch-hover cursor-pointer">PRESENTATION</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+                You are a <span class="text-white font-bold">Calm Authority Operator</span>. 
+                But your video presence feels like a gamble instead of an asset.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="https://cal.com/hesamedin-simin/30min" class="cta-btn px-8 py-4 text-lg w-full md:w-auto min-w-[200px] text-center">
+                    DEPLOY AUTHORITY
+                </a>
+                <span class="font-mono text-xs text-gray-500">
+                    // NO MEETINGS REQUIRED<br>
+                    // NO FLUFF
+                </span>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Fast turnaround</p>
-              <p class="mt-1 text-xs text-slate-600">Reliable cadence</p>
-            </div>
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Reputation first</p>
-              <p class="mt-1 text-xs text-slate-600">Consistency without stress</p>
-            </div>
-          </div>
         </div>
 
-        <!-- Visual panel -->
-        <div class="lg:col-span-5">
-          <div class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-            <div class="p-5 border-b border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-rose-500" aria-hidden="true"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-amber-500" aria-hidden="true"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
-              </div>
-              <p class="text-xs text-slate-600">LinkedIn video preview</p>
-            </div>
-            <div class="p-6">
-              <div class="relative aspect-[9/16] w-full rounded-2xl bg-slate-950 overflow-hidden">
-                <div class="absolute inset-0 opacity-80" aria-hidden="true">
-                  <svg class="h-full w-full" viewBox="0 0 600 1000" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                        <stop offset="0" stop-color="#111827"/>
-                        <stop offset="1" stop-color="#0b1220"/>
-                      </linearGradient>
-                      <radialGradient id="g2" cx="30%" cy="20%" r="70%">
-                        <stop offset="0" stop-color="#6366f1" stop-opacity="0.35"/>
-                        <stop offset="1" stop-color="#000000" stop-opacity="0"/>
-                      </radialGradient>
-                      <radialGradient id="g3" cx="80%" cy="70%" r="70%">
-                        <stop offset="0" stop-color="#14b8a6" stop-opacity="0.25"/>
-                        <stop offset="1" stop-color="#000000" stop-opacity="0"/>
-                      </radialGradient>
-                    </defs>
-                    <rect width="600" height="1000" fill="url(#g1)"/>
-                    <rect width="600" height="1000" fill="url(#g2)"/>
-                    <rect width="600" height="1000" fill="url(#g3)"/>
-                    <circle cx="300" cy="320" r="120" fill="#0f172a" opacity="0.8" />
-                    <path d="M260 260c30-20 80-20 110 0" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" opacity="0.6"/>
-                    <path d="M240 420c40 30 120 30 160 0" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" opacity="0.55"/>
-                    <rect x="70" y="720" width="460" height="44" rx="14" fill="#0b1220" opacity="0.9"/>
-                    <rect x="90" y="733" width="320" height="18" rx="9" fill="#e2e8f0" opacity="0.85"/>
-                    <rect x="70" y="780" width="460" height="44" rx="14" fill="#0b1220" opacity="0.75"/>
-                    <rect x="90" y="793" width="260" height="18" rx="9" fill="#e2e8f0" opacity="0.75"/>
-                  </svg>
-                </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-[#00FF41]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
 
-                <div class="absolute inset-x-4 top-4 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="h-9 w-9 rounded-full bg-slate-200/20 border border-white/10"></div>
-                    <div>
-                      <p class="text-sm text-white font-semibold">Your name</p>
-                      <p class="text-xs text-slate-300">Founder, Consultant</p>
+    <!-- PATTERN INTERRUPT: THE PROBLEM -->
+    <section class="py-24 bg-white/5 border-y border-white/10 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <div class="font-mono text-[#00FF41] mb-4 text-sm">// ERROR LOG DETECTED</div>
+                <h2 class="text-4xl font-bold mb-6 text-white">INTELLIGENCE ROT</h2>
+                <p class="text-gray-400 mb-4 text-lg">
+                    You have real things to say. But your content quietly undermines you.
+                </p>
+                <ul class="space-y-4 font-mono text-sm text-gray-300">
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-500">[x]</span> Poor sound quality
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-500">[x]</span> Awkward framing
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-500">[x]</span> Rambling formats
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-500">[x]</span> 11 likes per post
+                    </li>
+                </ul>
+                <div class="mt-8 p-4 border border-red-500/30 bg-red-500/5 text-red-200 text-sm font-mono">
+                    WARNING: Hesitation kills consistency. You are choosing to be invisible.
+                </div>
+            </div>
+            <div class="order-1 md:order-2 relative">
+                <div class="absolute inset-0 bg-[#00FF41] opacity-20 blur-3xl rounded-full"></div>
+                <div class="relative z-10 bg-black border border-white/20 p-8 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <h3 class="font-bold text-2xl mb-4 text-white">THE CURRENT REALITY</h3>
+                    <p class="text-gray-400 italic">
+                        "I don't want to embarrass myself in public."
+                    </p>
+                    <p class="text-gray-400 italic mt-2">
+                        "I don't want to look like I'm chasing money."
+                    </p>
+                    <div class="mt-6 h-1 w-full bg-gray-800">
+                        <div class="h-full w-[10%] bg-red-500"></div>
                     </div>
-                  </div>
-                  <div class="rounded-full bg-white/10 border border-white/10 px-3 py-1 text-xs text-slate-200">Clean audio</div>
+                    <div class="mt-2 flex justify-between text-xs font-mono text-gray-500">
+                        <span>CREDIBILITY</span>
+                        <span>CRITICAL LOW</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="absolute inset-x-5 bottom-5 space-y-2">
-                  <div class="rounded-xl bg-white/10 border border-white/10 px-3 py-2 text-xs text-slate-200">
-                    Captions that feel professional.
-                  </div>
-                  <div class="flex gap-2">
-                    <div class="h-10 flex-1 rounded-xl bg-white/10 border border-white/10"></div>
-                    <div class="h-10 w-14 rounded-xl bg-white/10 border border-white/10"></div>
-                  </div>
+    <!-- THE SOLUTION: ENGINEERED COMPULSION -->
+    <section class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center mb-20">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">THIS IS NOT DESIGN.<br>THIS IS <span class="text-[#00FF41]">ENGINEERED COMPULSION.</span></h2>
+            <p class="text-xl text-gray-400">From exposed creator to calm authority people trust before they speak.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <!-- Card 1 -->
+            <div class="p-8 border border-white/10 hover:border-[#00FF41] transition-colors duration-300 bg-black group">
+                <div class="text-4xl mb-4 group-hover:translate-x-2 transition-transform">01</div>
+                <h3 class="text-xl font-bold text-white mb-3">INPUT</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    You provide rough talking points. Professor mode. No scripts. No acting. Just your raw intelligence.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="p-8 border border-white/10 hover:border-[#00FF41] transition-colors duration-300 bg-black group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-2">
+                    <div class="w-2 h-2 bg-[#00FF41] rounded-full animate-ping"></div>
                 </div>
-              </div>
-
-              <div class="mt-5 grid grid-cols-3 gap-3">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                  <p class="text-xs font-semibold text-slate-900">Hook</p>
-                  <p class="mt-1 text-[11px] text-slate-600">Tight opening</p>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                  <p class="text-xs font-semibold text-slate-900">Pacing</p>
-                  <p class="mt-1 text-[11px] text-slate-600">No ramble</p>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                  <p class="text-xs font-semibold text-slate-900">Signal</p>
-                  <p class="mt-1 text-[11px] text-slate-600">Trust first</p>
-                </div>
-              </div>
+                <div class="text-4xl mb-4 group-hover:translate-x-2 transition-transform">02</div>
+                <h3 class="text-xl font-bold text-white mb-3">PROCESSING</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    I translate "expert" into "social signal." Visual hooks. Pacing. Subtitles. Audio mastering.
+                </p>
             </div>
-          </div>
-          <p class="mt-3 text-xs text-slate-600">Visual is a mock. Your content stays on brand.</p>
+
+            <!-- Card 3 -->
+            <div class="p-8 border border-white/10 hover:border-[#00FF41] transition-colors duration-300 bg-black group">
+                <div class="text-4xl mb-4 group-hover:translate-x-2 transition-transform">03</div>
+                <h3 class="text-xl font-bold text-white mb-3">OUTPUT</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Weekly short-form content engine. Conversations reopen. Inbound warms up. You stay credible.
+                </p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Proof cues -->
-    <section id="proof" class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="grid lg:grid-cols-12 gap-6 items-start">
-        <div class="lg:col-span-5">
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">This is for people who think in systems.</h2>
-          <div class="mt-3 space-y-2 text-slate-700">
-            <p>You care about substance.</p>
-            <p>You avoid hype.</p>
-            <p>You want calm execution.</p>
-          </div>
-          <div class="mt-6 rounded-2xl border border-slate-200 bg-white/70 glass p-5 ring-soft reveal">
-            <p class="text-sm font-semibold">What we optimize</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Audio that sounds intentional.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Framing that looks composed.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Captions that read clean.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>script feedback that keep your meaning.</span></li>
-            </ul>
-          </div>
+    <!-- SOCIAL PROOF / INSIDER LANGUAGE -->
+    <section class="py-20 border-t border-b border-white/10 bg-[#0A0A0A]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="font-mono text-xs text-gray-500 mb-8 tracking-[0.2em]">IDENTITY VERIFICATION</div>
+            
+            <div class="text-2xl md:text-3xl font-light leading-relaxed text-gray-200">
+                "I want people to feel like they already <span class="text-[#00FF41] font-bold">know me</span> and <span class="text-[#00FF41] font-bold">trust me</span>."
+            </div>
+            
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="font-mono text-sm text-center text-red-500/70 line-through decoration-red-500 decoration-2">HACKY GROWTH</div>
+                <div class="font-mono text-sm text-center text-red-500/70 line-through decoration-red-500 decoration-2">VIRAL DANCING</div>
+                <div class="font-mono text-sm text-center text-red-500/70 line-through decoration-red-500 decoration-2">TEMPLATES</div>
+                <div class="font-mono text-sm text-center text-red-500/70 line-through decoration-red-500 decoration-2">HYPE PROMISES</div>
+            </div>
+            <div class="mt-8 text-center">
+                 <span class="inline-block px-3 py-1 border border-[#00FF41] bg-[#00FF41]/10 rounded-full font-mono text-xs text-[#00FF41]">SYSTEM PREFERENCE :: CALM AUTHORITY</span>
+            </div>
         </div>
-
-        <div class="lg:col-span-7">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Common pattern</p>
-              <p class="mt-2 text-lg font-semibold">You record once. You hesitate to post.</p>
-              <ul class="mt-4 space-y-2 text-sm text-slate-700">
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span><span>Audio feels thin.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span><span>Captions feel loud.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span><span>Pacing feels long.</span></li>
-              </ul>
-            </div>
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Desired state</p>
-              <p class="mt-2 text-lg font-semibold">You post. You stay composed.</p>
-              <ul class="mt-4 space-y-2 text-sm text-slate-700">
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Clear sound & Readable subtitles.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Elevate Retention & Releation.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Strong structure.</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-4 rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p class="text-sm text-slate-600">Risk reduction</p>
-                <p class="mt-1 text-lg font-semibold">You get a repeatable edit style.</p>
-                <p class="mt-2 text-sm text-slate-700">It stays consistent across posts.</p>
-              </div>
-              <div class="flex gap-2">
-                <button id="btnSeeSystem" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">See the system</button>
-                <button id="btnSampleProof" class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
 
-    <!-- System -->
-    <section id="system" class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 md:p-10 reveal">
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-5">
-            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">A calm system. Not a content factory.</h2>
-            <div class="mt-3 space-y-2 text-slate-700">
-              <p>You send one recording.</p>
-              <p>We return clips that feel like you.</p>
-              <p>You approve fast.</p>
-            </div>
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-              <button id="btnPrimarySystem" class="btn inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-base font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Book a fit call</button>
-              <a class="btn inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-50 focus-ring" href="#work">See examples</a>
-            </div>
-          </div>
-          <div class="lg:col-span-7">
-            <ol class="grid md:grid-cols-2 gap-4">
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 1</p>
-                <p class="mt-2 font-semibold">Quick intake.</p>
-                <p class="mt-1 text-sm text-slate-700">Tone. audience. offer. boundaries.</p>
-              </li>
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 2</p>
-                <p class="mt-2 font-semibold">Edit for authority.</p>
-                <p class="mt-1 text-sm text-slate-700">Clean cuts. tight pacing. stable sound.</p>
-              </li>
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 3</p>
-                <p class="mt-2 font-semibold">Captions that respect you.</p>
-                <p class="mt-1 text-sm text-slate-700">Readable. calm. on brand.</p>
-              </li>
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 4</p>
-                <p class="mt-2 font-semibold">Deliver ready-to-post.</p>
-                <p class="mt-1 text-sm text-slate-700">File names. thumbnails. posting notes.</p>
-              </li>
-            </ol>
+    <!-- FINAL CTA -->
+    <section class="min-h-[80vh] flex flex-col justify-center items-center px-6 relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 z-0 opacity-10" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="relative z-10 max-w-3xl text-center">
+            <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
+                REPUTATION<br>
+                <span class="text-[#00FF41]">COMPOUNDS</span>
+            </h2>
+            
+            <p class="text-xl text-gray-400 mb-12">
+                I am not a creative agency. I am a signal operator for B2B founders.<br>
+                Price is discussed after we determine if you have something to say.
+            </p>
 
-            <div class="mt-6 grid sm:grid-cols-3 gap-3">
-              <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-semibold">Style guide</p>
-                <p class="mt-1 text-xs text-slate-600">Your rules stay fixed</p>
-              </div>
-              <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-semibold">Version control</p>
-                <p class="mt-1 text-xs text-slate-600">No lost edits</p>
-              </div>
-              <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-semibold">Slack or email</p>
-                <p class="mt-1 text-xs text-slate-600">Low friction comms</p>
-              </div>
+            <a href="https://cal.com/hesamedin-simin/30min" class="cta-btn text-2xl px-12 py-6 inline-block w-full md:w-auto neon-border">
+                INITIALIZE PROTOCOL
+            </a>
+            
+            <div class="mt-12 font-mono text-xs text-gray-600">
+                <p>OR EMAIL DIRECTLY</p>
+                <a href="mailto:Hi@HesamSimin.ir" class="text-white hover:text-[#00FF41] text-lg mt-2 inline-block">Hi@HesamSimin.ir</a>
             </div>
-
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Work examples (visual cards) -->
-    <section id="work" class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">What your posts can look like</h2>
-          <div class="mt-3 space-y-2 text-slate-700">
-            <p>Clean. readable. structured.</p>
-            <p>Still you. just sharper.</p>
-          </div>
-        </div>
-        <button id="btnSampleWork" class="btn hidden sm:inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-      </div>
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-white/10 bg-black text-center">
+        <p class="font-mono text-xs text-gray-600">
+            SYSTEM STATUS: ONLINE<br>
+            © HESAM SIMIN // ALL RIGHTS RESERVED
+        </p>
+    </footer>
 
-      <div class="mt-6 grid lg:grid-cols-3 gap-4">
-        <article class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-          <div class="p-5 border-b border-slate-200">
-            <p class="text-sm font-semibold">Talking head clip</p>
-            <p class="mt-1 text-xs text-slate-600">Better pacing. better sound.</p>
-          </div>
-          <div class="p-5">
-            <div class="rounded-2xl bg-slate-950 aspect-[16/9] relative overflow-hidden">
-              <div class="absolute inset-0 opacity-90" aria-hidden="true">
-                <svg class="h-full w-full" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#0b1220"/>
-                      <stop offset="1" stop-color="#111827"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="800" height="450" fill="url(#c1)"/>
-                  <circle cx="260" cy="205" r="85" fill="#0f172a" opacity="0.95" />
-                  <rect x="400" y="120" width="320" height="26" rx="13" fill="#e2e8f0" opacity="0.22"/>
-                  <rect x="400" y="160" width="270" height="18" rx="9" fill="#e2e8f0" opacity="0.18"/>
-                  <rect x="60" y="340" width="680" height="56" rx="16" fill="#0b1220" opacity="0.85"/>
-                  <rect x="88" y="360" width="480" height="16" rx="8" fill="#e2e8f0" opacity="0.75"/>
-                </svg>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Captions on</span>
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Brand safe</span>
-              </div>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Removes dead air.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Levels vocal tone.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Highlights key lines.</span></li>
-            </ul>
-          </div>
-        </article>
+    <script>
+        // Random Glitch Effect for Headline
+        const headline = document.querySelector('h1 span');
+        setInterval(() => {
+            if(Math.random() > 0.95) {
+                headline.style.animation = 'glitch-text 0.2s cubic-bezier(.25, .46, .45, .94) both infinite';
+                setTimeout(() => {
+                    headline.style.animation = '';
+                }, 200);
+            }
+        }, 2000);
 
-        <article class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-          <div class="p-5 border-b border-slate-200">
-            <p class="text-sm font-semibold">Podcast repurpose</p>
-            <p class="mt-1 text-xs text-slate-600">Clips with context. not noise.</p>
-          </div>
-          <div class="p-5">
-            <div class="rounded-2xl bg-slate-950 aspect-[16/9] relative overflow-hidden">
-              <div class="absolute inset-0 opacity-90" aria-hidden="true">
-                <svg class="h-full w-full" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="800" height="450" fill="#0b1220"/>
-                  <rect x="50" y="55" width="700" height="90" rx="18" fill="#111827"/>
-                  <rect x="80" y="86" width="240" height="18" rx="9" fill="#e2e8f0" opacity="0.25"/>
-                  <rect x="80" y="112" width="360" height="14" rx="7" fill="#e2e8f0" opacity="0.18"/>
-                  <rect x="50" y="170" width="700" height="170" rx="24" fill="#111827"/>
-                  <path d="M90 255c25-40 45 40 70 0s45 40 70 0 45 40 70 0 45 40 70 0 45 40 70 0 45 40 70 0" stroke="#6366f1" stroke-width="6" fill="none" opacity="0.65"/>
-                  <rect x="50" y="360" width="700" height="60" rx="18" fill="#0f172a"/>
-                  <rect x="80" y="382" width="520" height="14" rx="7" fill="#e2e8f0" opacity="0.75"/>
-                </svg>
-              </div>
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Context title</span>
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Waveform</span>
-              </div>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Starts with the point.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Adds light framing.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Keeps it professional.</span></li>
-            </ul>
-          </div>
-        </article>
+        // Simple scroll observer to trigger fade-ins
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-        <article class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-          <div class="p-5 border-b border-slate-200">
-            <p class="text-sm font-semibold">Silent scroller friendly</p>
-            <p class="mt-1 text-xs text-slate-600">Captions that people finish.</p>
-          </div>
-          <div class="p-5">
-            <div class="rounded-2xl bg-slate-950 aspect-[16/9] relative overflow-hidden">
-              <div class="absolute inset-0 opacity-90" aria-hidden="true">
-                <svg class="h-full w-full" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="c2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#111827"/>
-                      <stop offset="1" stop-color="#0b1220"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="800" height="450" fill="url(#c2)"/>
-                  <rect x="80" y="70" width="640" height="70" rx="18" fill="#0f172a" opacity="0.95"/>
-                  <rect x="110" y="95" width="520" height="20" rx="10" fill="#e2e8f0" opacity="0.75"/>
-                  <rect x="80" y="160" width="640" height="70" rx="18" fill="#0f172a" opacity="0.78"/>
-                  <rect x="110" y="185" width="420" height="20" rx="10" fill="#e2e8f0" opacity="0.65"/>
-                  <rect x="80" y="250" width="640" height="70" rx="18" fill="#0f172a" opacity="0.60"/>
-                  <rect x="110" y="275" width="360" height="20" rx="10" fill="#e2e8f0" opacity="0.55"/>
-                  <rect x="80" y="350" width="240" height="40" rx="16" fill="#6366f1" opacity="0.75"/>
-                  <rect x="110" y="364" width="180" height="12" rx="6" fill="#ffffff" opacity="0.8"/>
-                </svg>
-              </div>
-              <div class="absolute bottom-3 right-3">
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Readable</span>
-              </div>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Short lines.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Strong hierarchy.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Minimal motion.</span></li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
 
-    <!-- Offer -->
-    <section class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="grid lg:grid-cols-12 gap-6 items-start">
-        <div class="lg:col-span-5">
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Choose the pace you can sustain</h2>
-          <div class="mt-3 space-y-2 text-slate-700">
-            <p>Consistency compounds.</p>
-            <p>We keep it manageable.</p>
-          </div>
-          <div class="mt-6 rounded-2xl border border-slate-200 bg-white/70 glass p-5 ring-soft reveal">
-            <p class="text-sm font-semibold">Included in every plan</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Audio cleanup.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Caption styling.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Brand-safe look.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>One round of revisions.</span></li>
-            </ul>
-          </div>
-        </div>
+        document.querySelectorAll('section > div').forEach((el) => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
 
-        <div class="lg:col-span-7">
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Starter</p>
-              <p class="mt-2 text-xl font-semibold">4 clips per month</p>
-              <p class="mt-2 text-sm text-slate-700">For a steady signal.</p>
-              <button data-plan="Starter" class="btn mt-5 w-full inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Get details</button>
-            </div>
-            <div class="rounded-3xl border border-indigo-200 bg-indigo-50 ring-soft p-6 reveal">
-              <p class="text-sm text-indigo-700">Operator</p>
-              <p class="mt-2 text-xl font-semibold">8 clips per month</p>
-              <p class="mt-2 text-sm text-slate-700">For weekly momentum.</p>
-              <button data-plan="Operator" class="btn mt-5 w-full inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Get details</button>
-            </div>
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Authority</p>
-              <p class="mt-2 text-xl font-semibold">12 clips per month</p>
-              <p class="mt-2 text-sm text-slate-700">For strong visibility.</p>
-              <button data-plan="Authority" class="btn mt-5 w-full inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Get details</button>
-            </div>
-          </div>
+        // Mouse trail effect for desktop
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            const cursor = document.createElement('div');
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.border = '1px solid #00FF41';
+            cursor.style.position = 'fixed';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.borderRadius = '50%';
+            cursor.style.zIndex = '9999';
+            cursor.style.transition = 'transform 0.1s ease';
+            cursor.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(cursor);
 
-          <div class="mt-4 rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p class="text-sm text-slate-600">Not sure?</p>
-                <p class="mt-1 text-lg font-semibold">Start with a sample edit.</p>
-                <p class="mt-2 text-sm text-slate-700">One clip. your footage. our style.</p>
-              </div>
-              <div class="flex gap-2">
-                <button id="btnSampleOffer" class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-                <button id="btnCallOffer" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Book a call</button>
-              </div>
-            </div>
-          </div>
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
 
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="mx-auto max-w-6xl px-4 pb-16">
-      <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 md:p-10 reveal">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">FAQ</h2>
-            <div class="mt-3 space-y-2 text-slate-700">
-              <p>Short answers.</p>
-              <p>Clear boundaries.</p>
-            </div>
-          </div>
-          <button id="btnSampleFAQ" class="btn inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-5 py-3 text-base font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Get a sample edit</button>
-        </div>
-
-        <div class="mt-8 grid lg:grid-cols-2 gap-4">
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">Will this feel like influencer content?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>No.</p>
-              <p>We keep motion minimal.</p>
-              <p>We protect your tone.</p>
-            </div>
-          </div>
-
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">What do you need from me?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>One recording.</p>
-              <p>Any notes you care about.</p>
-              <p>We handle the rest.</p>
-            </div>
-          </div>
-
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">How fast is turnaround?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>Most clips ship in 48 to 72 hours.</p>
-              <p>Cadence stays predictable.</p>
-            </div>
-          </div>
-
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">Do you promise outcomes?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>No.</p>
-              <p>We promise execution quality.</p>
-              <p>You keep control of the message.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
-          <div class="grid md:grid-cols-12 gap-6 items-center">
-            <div class="md:col-span-8">
-              <p class="text-sm text-slate-600">Next step</p>
-              <p class="mt-2 text-xl md:text-2xl font-semibold">Send one clip. Get one sample edit.</p>
-              <p class="mt-3 text-sm text-slate-700">You decide if the style fits.</p>
-            </div>
-            <div class="md:col-span-4 flex flex-col gap-3">
-              <button id="btnPrimaryBottom" class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-base font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-              <button id="btnCallBottom" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold hover:bg-slate-50 focus-ring" type="button">Book a fit call</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- Sticky CTA (mobile) -->
-  <div class="fixed inset-x-0 bottom-0 z-50 md:hidden border-t border-slate-200 bg-white/90 glass">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex gap-2">
-      <button id="btnStickySample" class="btn flex-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Sample</button>
-      <button id="btnStickyCall" class="btn flex-1 inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Call</button>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
-    <div class="absolute inset-0 bg-slate-900/50"></div>
-    <div class="relative mx-auto max-w-xl px-4 py-10">
-      <div class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden">
-        <div class="p-5 md:p-6 border-b border-slate-200 flex items-start justify-between gap-4">
-          <div>
-            <p id="modalTitle" class="text-lg font-semibold">Request a sample edit</p>
-            <p id="modalSubtitle" class="mt-1 text-sm text-slate-600">Short form. quick reply.</p>
-          </div>
-          <button id="btnCloseModal" class="btn rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button" aria-label="Close">
-            Close
-          </button>
-        </div>
-
-        <form id="leadForm" class="p-5 md:p-6" autocomplete="on">
-          <div class="grid md:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm font-semibold">Name</span>
-              <input name="name" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="Your name" required />
-            </label>
-            <label class="block">
-              <span class="text-sm font-semibold">Email</span>
-              <input name="email" type="email" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="you@company.com" required />
-            </label>
-            <label class="block md:col-span-2">
-              <span class="text-sm font-semibold">LinkedIn profile</span>
-              <input name="linkedin" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="https://www.linkedin.com/in/..." />
-            </label>
-            <label class="block md:col-span-2">
-              <span class="text-sm font-semibold">What are you posting right now?</span>
-              <select name="type" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring">
-                <option value="talking-head">Talking head</option>
-                <option value="podcast">Podcast clips</option>
-                <option value="tutorial">Tutorials</option>
-                <option value="mixed">Mixed</option>
-              </select>
-            </label>
-            <label class="block md:col-span-2">
-              <span class="text-sm font-semibold">One constraint we should respect</span>
-              <input name="constraint" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="No flashy captions. keep it calm." />
-            </label>
-          </div>
-
-          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p class="text-sm font-semibold">Prefer a call?</p>
-            <p class="mt-1 text-sm text-slate-700">We can do 15 minutes.</p>
-            <div class="mt-3 flex flex-col sm:flex-row gap-2">
-              <button id="btnCopyLink" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Copy scheduling link</button>
-              <a id="scheduleLink" class="btn inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-ring" href="#" target="_blank" rel="noreferrer">Open scheduling</a>
-            </div>
-            <p id="copyHint" class="mt-2 text-xs text-slate-600 hidden">Copied.</p>
-          </div>
-
-          <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <button class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-base font-semibold text-white hover:bg-slate-800 focus-ring" type="submit">Send</button>
-            <button id="btnCancel" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold hover:bg-slate-50 focus-ring" type="button">Cancel</button>
-          </div>
-
-          <p class="mt-4 text-xs text-slate-600">This demo stores your submission in your browser only.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast -->
-  <div id="toast" class="fixed right-4 top-4 z-[200] hidden">
-    <div class="rounded-2xl border border-slate-200 bg-white ring-soft px-4 py-3">
-      <p id="toastText" class="text-sm font-semibold">Saved.</p>
-      <p class="mt-1 text-xs text-slate-600">We will reply soon.</p>
-    </div>
-  </div>
-
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-10">
-      <div class="grid md:grid-cols-12 gap-6">
-        <div class="md:col-span-6">
-          <p class="font-semibold">Calm Authority Video</p>
-          <p class="mt-2 text-sm text-slate-700">Editing that protects credibility.</p>
-          <p class="mt-2 text-sm text-slate-700">Built for serious LinkedIn operators.</p>
-        </div>
-        <div class="md:col-span-3">
-          <p class="text-sm font-semibold">Links</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-700">
-            <li><a class="hover:text-slate-900" href="#proof">Proof</a></li>
-            <li><a class="hover:text-slate-900" href="#system">System</a></li>
-            <li><a class="hover:text-slate-900" href="#work">Examples</a></li>
-            <li><a class="hover:text-slate-900" href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="md:col-span-3">
-          <p class="text-sm font-semibold">Contact</p>
-          <p class="mt-3 text-sm text-slate-700">Email: <a class="underline hover:text-slate-900" href="mailto:Hi@HesamSimin.ir">Hi@HesamSimin.ir</a></p>
-          <p class="mt-2 text-xs text-slate-500">Or massage me on Linkedin.</p>
-        </div>
-      </div>
-      <div class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-slate-500">
-        <p>© <span id="year"></span> Hesamedin Simin</p>
-        <p>Privacy friendly. No trackers.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Config
-    const SCHEDULING_URL = "https://cal.com/hesamedin-simin/30min";
-
-    // Elements
-    const modal = document.getElementById('modal');
-    const leadForm = document.getElementById('leadForm');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSubtitle = document.getElementById('modalSubtitle');
-    const scheduleLink = document.getElementById('scheduleLink');
-    const copyHint = document.getElementById('copyHint');
-    const toast = document.getElementById('toast');
-    const toastText = document.getElementById('toastText');
-
-    // Init
-    document.getElementById('year').textContent = new Date().getFullYear();
-    scheduleLink.href = SCHEDULING_URL;
-
-    // Reveal on scroll
-    const reveals = Array.from(document.querySelectorAll('.reveal'));
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add('is-in');
-      }
-    }, { threshold: 0.12 });
-    reveals.forEach(el => io.observe(el));
-
-    // Modal helpers
-    let lastFocus = null;
-    function openModal(mode, meta = {}) {
-      lastFocus = document.activeElement;
-      modal.classList.remove('hidden');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      const title = mode === 'call' ? 'Book a fit call' : 'Request a sample edit';
-      const subtitle = mode === 'call' ? 'We keep it short. We keep it practical.' : 'Send one clip. Get one sample edit.';
-
-      modalTitle.textContent = title;
-      modalSubtitle.textContent = subtitle;
-
-      const plan = meta.plan || '';
-      const constraint = leadForm.elements.constraint;
-      if (plan) {
-        constraint.value = `Plan interest: ${plan}. Constraint: `;
-      }
-
-      // Focus first input
-      setTimeout(() => {
-        leadForm.querySelector('input[name="name"]').focus();
-      }, 50);
-    }
-
-    function closeModal() {
-      modal.classList.add('hidden');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      copyHint.classList.add('hidden');
-      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    }
-
-    function showToast(message) {
-      toastText.textContent = message;
-      toast.classList.remove('hidden');
-      setTimeout(() => toast.classList.add('hidden'), 2200);
-    }
-
-    // Open modal buttons
-    const openSampleButtons = [
-      'btnSampleTop','btnSecondaryHero','btnSampleProof','btnSampleWork','btnSampleOffer','btnSampleFAQ','btnPrimaryBottom','btnStickySample'
-    ].map(id => document.getElementById(id)).filter(Boolean);
-
-    openSampleButtons.forEach(btn => btn.addEventListener('click', () => openModal('sample')));
-
-    const openCallButtons = [
-      'btnCallTop','btnPrimaryHero','btnPrimarySystem','btnCallOffer','btnCallBottom','btnStickyCall'
-    ].map(id => document.getElementById(id)).filter(Boolean);
-
-    openCallButtons.forEach(btn => btn.addEventListener('click', () => openModal('call')));
-
-    // Plan buttons
-    document.querySelectorAll('button[data-plan]').forEach(btn => {
-      btn.addEventListener('click', () => openModal('sample', { plan: btn.getAttribute('data-plan') }));
-    });
-
-    // System jump
-    document.getElementById('btnSeeSystem').addEventListener('click', () => {
-      document.getElementById('system').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // Close actions
-    document.getElementById('btnCloseModal').addEventListener('click', closeModal);
-    document.getElementById('btnCancel').addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('bg-slate-900/50')) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-    });
-
-    // Copy link
-    document.getElementById('btnCopyLink').addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(SCHEDULING_URL);
-        copyHint.classList.remove('hidden');
-        showToast('Link copied');
-      } catch {
-        copyHint.classList.remove('hidden');
-        copyHint.textContent = 'Copy failed. Use the open button.';
-      }
-    });
-
-    // FAQ toggles
-    document.querySelectorAll('.faq-item').forEach(item => {
-      const btn = item.querySelector('.faq-btn');
-      const panel = item.querySelector('.faq-panel');
-      const icon = btn.querySelector('span[aria-hidden="true"]');
-      btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        panel.classList.toggle('hidden');
-        icon.textContent = isOpen ? '+' : 'x';
-      });
-    });
-
-    // Form submission
-    leadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(leadForm).entries());
-      data.mode = modalTitle.textContent.includes('call') ? 'call' : 'sample';
-      data.timestamp = new Date().toISOString();
-
-      const key = 'calmAuthorityLeads';
-      const existing = JSON.parse(localStorage.getItem(key) || '[]');
-      existing.unshift(data);
-      localStorage.setItem(key, JSON.stringify(existing).slice(0, 200000));
-
-      showToast('Saved in your browser');
-      leadForm.reset();
-      closeModal();
-    });
-
-    // UTM capture
-    (function captureUtm() {
-      const params = new URLSearchParams(location.search);
-      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
-      const found = {};
-      let any = false;
-      utmKeys.forEach(k => {
-        if (params.get(k)) { found[k] = params.get(k); any = true; }
-      });
-      if (any) localStorage.setItem('calmAuthorityUTM', JSON.stringify(found));
-    })();
-  </script>
+            // Enlarge cursor on hoverables
+            const hoverables = document.querySelectorAll('a, button, .cursor-pointer');
+            hoverables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
+                    cursor.style.background = 'rgba(0, 255, 65, 0.1)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.background = 'transparent';
+                });
+            });
+        }
+    </script>
 </body>
 </html>
