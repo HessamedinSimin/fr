@@ -1,410 +1,267 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hesam Simin | Calm Authority Signal</title>
+    <title>Hesam Simin | Turn Your Expertise Into Authority</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="keywords" content="Hesamedin Simin,HesamedinSimin,HesamSimin, Hesam Simin, حسام سیمین,">
-    <meta name="author" content="Hesamedin Simin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --neon-green: #00FF41;
-            --dark-bg: #050505;
-            --glass: rgba(255, 255, 255, 0.05);
-        }
-        
-        body {
-            background-color: var(--dark-bg);
-            color: #e0e0e0;
+        * {
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            cursor: crosshair;
         }
-
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        /* Dopamine Triggers / Animations */
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); }
-            50% { box-shadow: 0 0 25px rgba(0, 255, 65, 0.6); }
+        .glow-button {
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
         }
-
-        @keyframes glitch-text {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        .glow-button:hover {
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.6);
+            transform: translateY(-2px);
         }
-
-        .neon-border {
-            border: 1px solid var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+        .card-hover {
+            transition: all 0.3s ease;
         }
-
-        .neon-text {
-            color: var(--neon-green);
-            text-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
-
-        .glitch-hover:hover {
-            animation: glitch-text 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-            color: var(--neon-green);
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
         }
-
-        .cta-btn {
-            background: var(--neon-green);
-            color: #000;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.7; }
+            100% { transform: scale(0.95); opacity: 1; }
         }
-
-        .cta-btn:hover {
-            background: #fff;
-            box-shadow: 0 0 20px #fff;
-            transform: scale(1.02);
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
         }
-
-        .cta-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
-            transform: rotate(45deg) translate(-100%, -100%);
-            animation: shine 3s infinite;
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes shine {
-            100% { transform: rotate(45deg) translate(100%, 100%); }
-        }
-
-        .scanline {
-            width: 100%;
-            height: 2px;
-            background: rgba(0, 255, 65, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 50;
-            animation: scan 8s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes scan {
-            0% { top: 0%; }
-            100% { top: 100%; }
-        }
-
-        /* Pattern Interrupt Elements */
-        .tape {
-            background-color: #ffff00;
-            color: #000;
-            transform: rotate(-2deg);
-            display: inline-block;
-            padding: 0 10px;
-            font-weight: 900;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--neon-green);
-        }
-        
-        .noise-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/200//svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
+        .fade-in-1 { animation-delay: 0.1s; transform: translateY(20px); }
+        .fade-in-2 { animation-delay: 0.3s; transform: translateY(20px); }
+        .fade-in-3 { animation-delay: 0.5s; transform: translateY(20px); }
+        .fade-in-4 { animation-delay: 0.7s; transform: translateY(20px); }
     </style>
 </head>
-<body class="antialiased relative">
-
-    <div class="noise-bg"></div>
-    <div class="scanline"></div>
-
-    <!-- Sticky Mobile CTA -->
-    <div class="fixed bottom-4 left-4 right-4 z-50 md:hidden p-1 bg-black/50 backdrop-blur-sm rounded-none">
-        <a href="https://cal.com/hesamedin-simin/30min" class="cta-btn block w-full text-center py-4 text-xl border-2 border-white shadow-[0_0_15px_rgba(0,255,65,0.3)]">
-            INITIALIZE SIGNAL
-        </a>
-    </div>
-
+<body class="bg-gray-950 text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-40 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-mono text-xs text-gray-500 tracking-widest">SYSTEM: HESAM_SIMIN_V1.0</div>
-            <a href="mailto:Hi@HesamSimin.ir" class="font-mono text-xs text-white hover:text-[#00FF41] transition-colors">[CONTACT_DIRECT]</a>
+            <span class="text-xl font-bold tracking-tight">Hesam<span class="gradient-text">Simin</span></span>
+            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="hidden sm:inline-flex px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-sm font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all">
+                Book a Call →
+            </a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="min-h-screen flex flex-col justify-center items-center pt-20 px-4 relative">
-        <div class="max-w-4xl mx-auto text-center z-10">
-            <div class="inline-block px-3 py-1 mb-6 border border-[#00FF41] bg-[#00FF41]/10 rounded-full animate-pulse">
-                <span class="font-mono text-xs text-[#00FF41]">STATUS :: SIGNAL WEAK</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-8xl font-black leading-tight tracking-tighter mb-8 text-white">
-                YOUR THINKING<br>
-                DESERVES BETTER<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF41] to-white glitch-hover cursor-pointer">PRESENTATION</span>
-            </h1>
-
-            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-                You are a <span class="text-white font-bold">Calm Authority Operator</span>. 
-                But your video presence feels like a gamble instead of an asset.
-            </p>
-
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <a href="https://cal.com/hesamedin-simin/30min" class="cta-btn px-8 py-4 text-lg w-full md:w-auto min-w-[200px] text-center">
-                    DEPLOY AUTHORITY
-                </a>
-                <span class="font-mono text-xs text-gray-500">
-                    // NO MEETINGS REQUIRED<br>
-                    // NO FLUFF
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in fade-in-1">
+                <span class="inline-block px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-sm font-medium mb-8">
+                    Content Systems That Convert
                 </span>
             </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-[#00FF41]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            
+            <h1 class="fade-in fade-in-2 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-8 tracking-tight">
+                If you've said something smart before, I can turn it into a system that creates 
+                <span class="gradient-text">30% more engagement</span> every 30 days
+            </h1>
+            
+            <div class="fade-in fade-in-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-2xl p-6 mb-10 max-w-2xl mx-auto">
+                <p class="text-lg sm:text-xl font-semibold text-red-400">
+                    Or else you don't pay.
+                </p>
+                <p class="text-gray-400 mt-2">Plus I'll redesign your whole website for free.</p>
+            </div>
+            
+            <div class="fade-in fade-in-4">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="inline-flex glow-button pulse-ring items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-lg font-bold hover:from-indigo-500 hover:to-purple-500 transition-all">
+                    Book Your 30-Min Call
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <p class="text-gray-500 text-sm mt-4">No commitment required</p>
+            </div>
         </div>
     </section>
 
-    <!-- PATTERN INTERRUPT: THE PROBLEM -->
-    <section class="py-24 bg-white/5 border-y border-white/10 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1">
-                <div class="font-mono text-[#00FF41] mb-4 text-sm">// ERROR LOG DETECTED</div>
-                <h2 class="text-4xl font-bold mb-6 text-white">INTELLIGENCE ROT</h2>
-                <p class="text-gray-400 mb-4 text-lg">
-                    You have real things to say. But your content quietly undermines you.
-                </p>
-                <ul class="space-y-4 font-mono text-sm text-gray-300">
-                    <li class="flex items-center gap-3">
-                        <span class="text-red-500">[x]</span> Poor sound quality
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="text-red-500">[x]</span> Awkward framing
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="text-red-500">[x]</span> Rambling formats
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="text-red-500">[x]</span> 11 likes per post
-                    </li>
-                </ul>
-                <div class="mt-8 p-4 border border-red-500/30 bg-red-500/5 text-red-200 text-sm font-mono">
-                    WARNING: Hesitation kills consistency. You are choosing to be invisible.
-                </div>
+    <!-- Banner Section -->
+    <section class="py-16 px-6 bg-gradient-to-r from-indigo-900/20 via-purple-900/20 to-indigo-900/20 border-y border-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-sm uppercase tracking-widest text-gray-500 mb-4">What you're actually buying</p>
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Authority</span>
+                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Time</span>
+                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Revenue</span>
+                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Confidence</span>
+                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Peace of Mind</span>
             </div>
-            <div class="order-1 md:order-2 relative">
-                <div class="absolute inset-0 bg-[#00FF41] opacity-20 blur-3xl rounded-full"></div>
-                <div class="relative z-10 bg-black border border-white/20 p-8 transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                    <h3 class="font-bold text-2xl mb-4 text-white">THE CURRENT REALITY</h3>
-                    <p class="text-gray-400 italic">
-                        "I don't want to embarrass myself in public."
-                    </p>
-                    <p class="text-gray-400 italic mt-2">
-                        "I don't want to look like I'm chasing money."
-                    </p>
-                    <div class="mt-6 h-1 w-full bg-gray-800">
-                        <div class="h-full w-[10%] bg-red-500"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm uppercase tracking-widest text-gray-500">About</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-4">For experts whose name carries weight <span class="gradient-text">OR SHOULD...</span></h2>
+            </div>
+            
+            <div class="bg-gray-900/50 rounded-3xl p-8 sm:p-12 border border-gray-800 mb-12">
+                <p class="text-xl sm:text-2xl font-medium text-center mb-8 text-gray-300">
+                    If you want flash or virality, look elsewhere.
+                </p>
+                <p class="text-3xl sm:text-4xl font-black text-center gradient-text">
+                    Look and sound as sharp as you think.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="card-hover bg-gray-900/50 rounded-2xl p-8 border border-gray-800">
+                    <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
                     </div>
-                    <div class="mt-2 flex justify-between text-xs font-mono text-gray-500">
-                        <span>CREDIBILITY</span>
-                        <span>CRITICAL LOW</span>
+                    <h3 class="text-xl font-bold mb-2">Pre-qualified Conversations</h3>
+                    <p class="text-gray-400">Attract people who already know your value and are ready to buy.</p>
+                </div>
+                
+                <div class="card-hover bg-gray-900/50 rounded-2xl p-8 border border-gray-800">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Zero Embarrassment</h3>
+                    <p class="text-gray-400">Content that makes you proud, not cringe. Professional quality, every time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-24 px-6 bg-gray-900/30">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm uppercase tracking-widest text-gray-500">My Workflow</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-4">How I Find Experts Like You</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">1</div>
+                    <div class="card-hover flex-1 bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                        <h3 class="text-xl font-bold mb-2">I Scout Creators Daily</h3>
+                        <p class="text-gray-400">I find experts who posted content in the last 24 hours and have real expertise to share.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">2</div>
+                    <div class="card-hover flex-1 bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                        <h3 class="text-xl font-bold mb-2">I Spot the Gaps</h3>
+                        <p class="text-gray-400">Bad video quality. Poor audio. Weak scripts. Your ideas deserve better.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">3</div>
+                    <div class="card-hover flex-1 bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
+                        <h3 class="text-xl font-bold mb-2">I Build Your System</h3>
+                        <p class="text-gray-400">Turn your expertise into a content machine that creates 30% more engagement every 30 days.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- THE SOLUTION: ENGINEERED COMPULSION -->
-    <section class="py-32 px-6">
-        <div class="max-w-4xl mx-auto text-center mb-20">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">THIS IS NOT DESIGN.<br>THIS IS <span class="text-[#00FF41]">ENGINEERED COMPULSION.</span></h2>
-            <p class="text-xl text-gray-400">From exposed creator to calm authority people trust before they speak.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <!-- Card 1 -->
-            <div class="p-8 border border-white/10 hover:border-[#00FF41] transition-colors duration-300 bg-black group">
-                <div class="text-4xl mb-4 group-hover:translate-x-2 transition-transform">01</div>
-                <h3 class="text-xl font-bold text-white mb-3">INPUT</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    You provide rough talking points. Professor mode. No scripts. No acting. Just your raw intelligence.
-                </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="p-8 border border-white/10 hover:border-[#00FF41] transition-colors duration-300 bg-black group relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-2">
-                    <div class="w-2 h-2 bg-[#00FF41] rounded-full animate-ping"></div>
+    <!-- Guarantee Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-3xl p-8 sm:p-12 border border-indigo-500/30 text-center">
+                <div class="w-20 h-20 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
                 </div>
-                <div class="text-4xl mb-4 group-hover:translate-x-2 transition-transform">02</div>
-                <h3 class="text-xl font-bold text-white mb-3">PROCESSING</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    I translate "expert" into "social signal." Visual hooks. Pacing. Subtitles. Audio mastering.
-                </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="p-8 border border-white/10 hover:border-[#00FF41] transition-colors duration-300 bg-black group">
-                <div class="text-4xl mb-4 group-hover:translate-x-2 transition-transform">03</div>
-                <h3 class="text-xl font-bold text-white mb-3">OUTPUT</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Weekly short-form content engine. Conversations reopen. Inbound warms up. You stay credible.
-                </p>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">My Bold Promise</h2>
+                <p class="text-xl text-gray-300 mb-6">30% more engagement every 30 days or you don't pay a dime.</p>
+                <p class="text-gray-400">And yes , if we work together, I'll redesign your entire website for free.</p>
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL PROOF / INSIDER LANGUAGE -->
-    <section class="py-20 border-t border-b border-white/10 bg-[#0A0A0A]">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="font-mono text-xs text-gray-500 mb-8 tracking-[0.2em]">IDENTITY VERIFICATION</div>
+    <!-- CTA Section -->
+    <section class="py-24 px-6 bg-gradient-to-b from-gray-900/50 to-transparent">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Look as Sharp as You Think?</h2>
+            <p class="text-xl text-gray-400 mb-10">Let's turn your expertise into the authority you deserve.</p>
             
-            <div class="text-2xl md:text-3xl font-light leading-relaxed text-gray-200">
-                "I want people to feel like they already <span class="text-[#00FF41] font-bold">know me</span> and <span class="text-[#00FF41] font-bold">trust me</span>."
-            </div>
-            
-<div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-    <div class="font-mono text-base md:text-lg text-center text-red-500/70 line-through decoration-red-500 decoration-2 px-2 py-1">HACKY GROWTH</div>
-    <div class="font-mono text-base md:text-lg text-center text-red-500/70 line-through decoration-red-500 decoration-2 px-2 py-1">VIRAL DANCING</div>
-    <div class="font-mono text-base md:text-lg text-center text-red-500/70 line-through decoration-red-500 decoration-2 px-2 py-1">TEMPLATES</div>
-    <div class="font-mono text-base md:text-lg text-center text-red-500/70 line-through decoration-red-500 decoration-2 px-2 py-1">HYPE PROMISES</div>
-            </div>
-            <div class="mt-8 text-center">
-                 <span class="inline-block px-3 py-1 border border-[#00FF41] bg-[#00FF41]/10 rounded-full font-mono text-xs text-[#00FF41]">SYSTEM PREFERENCE :: CALM AUTHORITY</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="min-h-[80vh] flex flex-col justify-center items-center px-6 relative overflow-hidden">
-        <!-- Background Grid -->
-        <div class="absolute inset-0 z-0 opacity-10" style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;"></div>
-        
-        <div class="relative z-10 max-w-3xl text-center">
-            <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-                REPUTATION<br>
-                <span class="text-[#00FF41]">COMPOUNDS</span>
-            </h2>
-            
-            <p class="text-xl text-gray-400 mb-12">
-                I am not a creative agency. I am a signal operator for B2B founders.<br>
-                Price is discussed after we determine if you have something to say.
-            </p>
-
-            <a href="https://cal.com/hesamedin-simin/30min" class="cta-btn text-2xl px-12 py-6 inline-block w-full md:w-auto neon-border">
-                INITIALIZE PROTOCOL
+            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="inline-flex glow-button pulse-ring items-center gap-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-xl font-bold hover:from-indigo-500 hover:to-purple-500 transition-all">
+                Book Your 30-Min Call Now
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
             </a>
             
-            <div class="mt-12 font-mono text-xs text-gray-600">
-                <p>OR EMAIL DIRECTLY</p>
-                <a href="mailto:Hi@HesamSimin.ir" class="text-white hover:text-[#00FF41] text-lg mt-2 inline-block">Hi@HesamSimin.ir</a>
-            </div>
+            <p class="text-gray-500 mt-6">Questions? Email me at <a href="mailto:Hi@HesamSimin.ir" class="text-indigo-400 hover:text-indigo-300 transition-colors">Hi@HesamSimin.ir</a></p>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-8 border-t border-white/10 bg-black text-center">
-        <p class="font-mono text-xs text-gray-600">
-            SYSTEM STATUS: ONLINE<br>
-            © HESAM SIMIN // ALL RIGHTS RESERVED
-        </p>
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span class="text-gray-500">© 2024 Hesam Simin. All rights reserved.</span>
+            <div class="flex gap-6">
+                <a href="mailto:Hi@HesamSimin.ir" class="text-gray-400 hover:text-white transition-colors">Email</a>
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="text-gray-400 hover:text-white transition-colors">Book a Call</a>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Random Glitch Effect for Headline
-        const headline = document.querySelector('h1 span');
-        setInterval(() => {
-            if(Math.random() > 0.95) {
-                headline.style.animation = 'glitch-text 0.2s cubic-bezier(.25, .46, .45, .94) both infinite';
-                setTimeout(() => {
-                    headline.style.animation = '';
-                }, 200);
-            }
-        }, 2000);
+        // Smooth scroll for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-        // Simple scroll observer to trigger fade-ins
+        // Intersection Observer for fade-in animations
         const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.style.animationPlayState = 'running';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('section > div').forEach((el) => {
-            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
-
-        // Mouse trail effect for desktop
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            const cursor = document.createElement('div');
-            cursor.style.width = '20px';
-            cursor.style.height = '20px';
-            cursor.style.border = '1px solid #00FF41';
-            cursor.style.position = 'fixed';
-            cursor.style.pointerEvents = 'none';
-            cursor.style.borderRadius = '50%';
-            cursor.style.zIndex = '9999';
-            cursor.style.transition = 'transform 0.1s ease';
-            cursor.style.transform = 'translate(-50%, -50%)';
-            document.body.appendChild(cursor);
-
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
-
-            // Enlarge cursor on hoverables
-            const hoverables = document.querySelectorAll('a, button, .cursor-pointer');
-            hoverables.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
-                    cursor.style.background = 'rgba(0, 255, 65, 0.1)';
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                    cursor.style.background = 'transparent';
-                });
-            });
-        }
     </script>
 </body>
 </html>
