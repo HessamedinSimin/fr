@@ -3,238 +3,660 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hesam Simin | Turn Your Expertise Into Authority</title>
+    <title>Hessamedin Simin | Hesamsimin | hesam simin | حسام سیمین </title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
+        :root {
+            --gradient-1: #6366f1;
+            --gradient-2: #ec4899;
+            --gradient-3: #06b6d4;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0f0f1a, #1a1a2e, #16213e, #0f0f1a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating orbs - smaller on mobile */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+            top: 50%;
+            left: 50%;
+            animation-delay: -10s;
+        }
+
+        @media (min-width: 768px) {
+            .orb {
+                filter: blur(80px);
+                opacity: 0.5;
+            }
+            .orb-1 {
+                width: 600px;
+                height: 600px;
+                top: -200px;
+                right: -200px;
+            }
+            .orb-2 {
+                width: 400px;
+                height: 400px;
+                bottom: -100px;
+                left: -100px;
+            }
+            .orb-3 {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.98); }
+            75% { transform: translate(15px, 30px) scale(1.02); }
+        }
+
+        @media (min-width: 768px) {
+            @keyframes float {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                25% { transform: translate(50px, -50px) scale(1.1); }
+                50% { transform: translate(-30px, 30px) scale(0.95); }
+                75% { transform: translate(20px, 50px) scale(1.05); }
+            }
+        }
+
+        /* Text gradient animation */
+        .text-gradient {
+            background: linear-gradient(90deg, #6366f1, #ec4899, #06b6d4, #6366f1);
+            background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: textGradient 8s ease infinite;
         }
-        .glow-button {
-            box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
+
+        @keyframes textGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-        .glow-button:hover {
-            box-shadow: 0 0 60px rgba(102, 126, 234, 0.6);
-            transform: translateY(-2px);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        .pulse-ring {
-            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-        }
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.7; }
-            100% { transform: scale(0.95); opacity: 1; }
-        }
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+
+        /* Reveal animations */
+        .reveal {
             opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .fade-in-1 { animation-delay: 0.1s; transform: translateY(20px); }
-        .fade-in-2 { animation-delay: 0.3s; transform: translateY(20px); }
-        .fade-in-3 { animation-delay: 0.5s; transform: translateY(20px); }
-        .fade-in-4 { animation-delay: 0.7s; transform: translateY(20px); }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Glowing button */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #6366f1, #ec4899, #06b6d4);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(15px);
+        }
+
+        .btn-glow:hover::before {
+            opacity: 1;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Card hover effects */
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 30px 60px -20px rgba(99, 102, 241, 0.3);
+        }
+
+        .service-card .icon-wrapper {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        /* Timeline styling */
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 56px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item::before {
+                left: 28px;
+                top: 70px;
+                height: calc(100% - 20px);
+            }
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-number {
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-number {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item:hover .timeline-number {
+                transform: scale(1.2);
+                box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        /* Marquee effect */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Noise texture overlay */
+        .noise::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Cursor glow effect */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Quote section */
+        .quote-mark {
+            font-size: 200px;
+            line-height: 1;
+            opacity: 0.1;
+            position: absolute;
+            font-family: Georgia, serif;
+        }
+
+        /* Magnetic button effect handled by JS */
+        .magnetic {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 767px) {
+            /* Reduce section padding on mobile */
+            .section-mobile {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            /* Better touch targets */
+            .btn-glow {
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Disable hover effects on mobile */
+            .service-card:hover {
+                transform: none;
+            }
+
+            .service-card:active {
+                transform: scale(0.98);
+                border-color: rgba(99, 102, 241, 0.5);
+            }
+
+            /* Simplified quote marks on mobile */
+            .quote-mobile {
+                font-size: 80px !important;
+            }
+
+            /* Better marquee speed on mobile */
+            .marquee-content {
+                animation-duration: 20s;
+            }
+        }
+
+        /* Safe area handling for notched phones */
+        @supports (padding: max(0px)) {
+            .nav-safe {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+            }
+            .footer-safe {
+                padding-bottom: max(3rem, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Smooth scrolling on iOS */
+        html {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        /* Prevent text size adjustment on orientation change */
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
     </style>
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
+<body class="gradient-bg text-white min-h-screen overflow-x-hidden noise">
+    
+    <!-- Cursor glow -->
+    <div class="cursor-glow hidden md:block" id="cursorGlow"></div>
+
+    <!-- Floating orbs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold tracking-tight">Hesam<span class="gradient-text">Simin</span></span>
-            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="hidden sm:inline-flex px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-sm font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all">
-                Book a Call →
+    <nav class="fixed w-full z-50 px-4 sm:px-6 py-4 sm:py-6 nav-safe">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl sm:text-2xl font-display font-bold tracking-tight hover:text-indigo-400 transition-colors magnetic">
+                Hesam Simin
+            </a>
+            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="btn-glow text-white font-semibold text-sm sm:text-base py-2.5 sm:py-3 px-5 sm:px-6 rounded-full magnetic">
+                Book Call
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="fade-in fade-in-1">
-                <span class="inline-block px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-sm font-medium mb-8">
-                    Content Systems That Convert
-                </span>
+    <section class="min-h-screen min-h-[100dvh] flex items-center justify-center relative px-5 sm:px-6 pt-24 sm:pt-20 pb-16">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="reveal" id="heroReveal">
+                <p class="text-indigo-400 font-medium mb-4 sm:mb-6 tracking-widest uppercase text-xs sm:text-sm">Content Strategy & Editing</p>
+                <h1 class="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] sm:leading-[0.95] mb-6 sm:mb-8">
+                    I turn raw ideas into
+                    <span class="text-gradient block mt-1 sm:mt-2">clear, structured,</span>
+                    <span class="block mt-1 sm:mt-2">ready-to-post content.</span>
+                </h1>
             </div>
-            
-            <h1 class="fade-in fade-in-2 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-8 tracking-tight">
-                If you've said something smart before, I can turn it into a system that creates 
-                <span class="gradient-text">30% more engagement</span> every 30 days
-            </h1>
-            
-            <div class="fade-in fade-in-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-2xl p-6 mb-10 max-w-2xl mx-auto">
-                <p class="text-lg sm:text-xl font-semibold text-red-400">
-                    Or else you don't pay.
-                </p>
-                <p class="text-gray-400 mt-2">Plus I'll redesign your whole website for free.</p>
-            </div>
-            
-            <div class="fade-in fade-in-4">
-                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="inline-flex glow-button pulse-ring items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-lg font-bold hover:from-indigo-500 hover:to-purple-500 transition-all">
-                    Book Your 30-Min Call
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            <p class="reveal delay-1 text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
+                For founders, coaches, and service providers who already know their craft and want their content to reflect it.
+            </p>
+            <div class="reveal delay-2">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="btn-glow inline-flex items-center gap-2 sm:gap-3 text-white text-base sm:text-lg font-semibold py-4 sm:py-5 px-8 sm:px-10 rounded-full magnetic">
+                    <span>Book a 30-min call</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </a>
-                <p class="text-gray-500 text-sm mt-4">No commitment required</p>
+            </div>
+        </div>
+
+        <!-- Scroll indicator - hidden on very small screens -->
+        <div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-gray-500 hidden sm:flex">
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+            <div class="w-px h-10 sm:h-12 bg-gradient-to-b from-gray-500 to-transparent animate-pulse"></div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="py-4 sm:py-6 md:py-8 border-y border-white/10 overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="inline-flex items-center gap-4 sm:gap-6 md:gap-8 text-base sm:text-xl md:text-2xl font-display text-gray-600 px-4 sm:px-6 md:px-8">
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                </span>
+                <span class="inline-flex items-center gap-4 sm:gap-6 md:gap-8 text-base sm:text-xl md:text-2xl font-display text-gray-600 px-4 sm:px-6 md:px-8">
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                </span>
             </div>
         </div>
     </section>
 
-    <!-- Banner Section -->
-    <section class="py-16 px-6 bg-gradient-to-r from-indigo-900/20 via-purple-900/20 to-indigo-900/20 border-y border-gray-800">
+    <!-- What I Do Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                <span class="reveal text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Services</span>
+                <h2 class="reveal delay-1 font-display text-3xl sm:text-4xl md:text-6xl font-bold mt-3 sm:mt-4">What I do</h2>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <!-- Service 1 -->
+                <div class="reveal delay-1 service-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl group">
+                    <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-indigo-600/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 md:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">Video Editing</h3>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                        Short-form and long-form business video, edited for clarity and pacing.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="reveal delay-2 service-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl group">
+                    <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-pink-600/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 md:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">Content Structure</h3>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                        Hooks, message flow, and CTAs that make ideas easier to follow.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="reveal delay-3 service-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl group sm:col-span-2 md:col-span-1">
+                    <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-cyan-600/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 md:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">Repurposing</h3>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                        One recording turned into multiple platform-ready assets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20">
+                <span class="reveal text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Process</span>
+                <h2 class="reveal delay-1 font-display text-3xl sm:text-4xl md:text-6xl font-bold mt-3 sm:mt-4">How it works</h2>
+            </div>
+            
+            <div class="space-y-4 sm:space-y-6 md:space-y-8">
+                <!-- Step 1 -->
+                <div class="reveal delay-1 timeline-item flex gap-4 sm:gap-6 md:gap-8 items-start">
+                    <div class="timeline-number flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-display font-bold text-lg sm:text-xl md:text-2xl">
+                        1
+                    </div>
+                    <div class="service-card flex-1 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-base sm:text-xl md:text-2xl font-bold leading-snug">You send raw content or recordings</h3>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="reveal delay-2 timeline-item flex gap-4 sm:gap-6 md:gap-8 items-start">
+                    <div class="timeline-number flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center font-display font-bold text-lg sm:text-xl md:text-2xl">
+                        2
+                    </div>
+                    <div class="service-card flex-1 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-base sm:text-xl md:text-2xl font-bold leading-snug">I remove filler, tighten structure, and edit</h3>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="reveal delay-3 timeline-item flex gap-4 sm:gap-6 md:gap-8 items-start">
+                    <div class="timeline-number flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center font-display font-bold text-lg sm:text-xl md:text-2xl">
+                        3
+                    </div>
+                    <div class="service-card flex-1 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-base sm:text-xl md:text-2xl font-bold leading-snug">You receive finished assets, ready to post</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Fit Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal service-card p-6 sm:p-10 md:p-16 lg:p-20 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] text-center relative overflow-hidden">
+                <!-- Decorative elements -->
+                <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                    <div class="absolute top-2 left-2 sm:top-6 sm:left-6 md:top-10 md:left-10 text-indigo-500/20 text-[60px] sm:text-[100px] md:text-[150px] lg:text-[200px] font-serif leading-none quote-mobile">"</div>
+                    <div class="absolute bottom-2 right-2 sm:bottom-6 sm:right-6 md:bottom-10 md:right-10 text-indigo-500/20 text-[60px] sm:text-[100px] md:text-[150px] lg:text-[200px] font-serif leading-none rotate-180 quote-mobile">"</div>
+                </div>
+                
+                <div class="relative z-10">
+                    <span class="text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Best Fit</span>
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 sm:mt-6 md:mt-8 mb-6 sm:mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto">
+                        This is for people who already have ideas, experience, or expertise — and want output without managing editors, designers, or content teams.
+                    </p>
+                    <div class="h-px w-20 sm:w-24 md:w-32 bg-gradient-to-r from-transparent via-indigo-500 to-transparent mx-auto mb-6 sm:mb-8 md:mb-12"></div>
+                    <p class="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gradient leading-tight">
+                        "If you already have something to say, I'll help you say it clearly."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
         <div class="max-w-4xl mx-auto text-center">
-            <p class="text-sm uppercase tracking-widest text-gray-500 mb-4">What you're actually buying</p>
-            <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Authority</span>
-                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Time</span>
-                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Revenue</span>
-                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Confidence</span>
-                <span class="px-6 py-3 bg-gray-800/50 rounded-full text-lg font-semibold">Peace of Mind</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-sm uppercase tracking-widest text-gray-500"></span>
-                <h2 class="text-3xl sm:text-4xl font-bold mt-4">For experts whose name carries weight <span class="gradient-text">OR SHOULD...</span></h2>
+            <div class="reveal">
+                <span class="text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Let's Work Together</span>
+                <h2 class="font-display text-4xl sm:text-5xl md:text-7xl font-bold mt-4 sm:mt-6 mb-8 sm:mb-12">
+                    Ready to <span class="text-gradient">start?</span>
+                </h2>
             </div>
             
-            <div class="bg-gray-900/50 rounded-3xl p-8 sm:p-12 border border-gray-800 mb-12">
-                <p class="text-xl sm:text-2xl font-medium text-center mb-8 text-gray-300">
-                    If you want flash or virality, look elsewhere.
-                </p>
-                <p class="text-3xl sm:text-4xl font-black text-center gradient-text">
-                    Look and sound as sharp as you think.
-                </p>
-            </div>
-            
-            <div class="grid sm:grid-cols-2 gap-6">
-                <div class="card-hover bg-gray-900/50 rounded-2xl p-8 border border-gray-800">
-                    <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Pre-qualified Conversations</h3>
-                    <p class="text-gray-400">Attract people who already know your value and are ready to buy.</p>
-                </div>
-                
-                <div class="card-hover bg-gray-900/50 rounded-2xl p-8 border border-gray-800">
-                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Zero Embarrassment</h3>
-                    <p class="text-gray-400">Content that makes you proud, not cringe. Professional quality, every time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="py-24 px-6 bg-gray-900/30">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-sm uppercase tracking-widest text-gray-500">My Workflow</span>
-                <h2 class="text-3xl sm:text-4xl font-bold mt-4">How I Find Experts Like You</h2>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">1</div>
-                    <div class="card-hover flex-1 bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
-                        <h3 class="text-xl font-bold mb-2">I Scout Creators Daily</h3>
-                        <p class="text-gray-400">I find experts who posted content in the last 24 hours and have real expertise to share.</p>
-                    </div>
-                </div>
-                
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">2</div>
-                    <div class="card-hover flex-1 bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
-                        <h3 class="text-xl font-bold mb-2">I Spot the Gaps</h3>
-                        <p class="text-gray-400">Bad video quality. Poor audio. Weak scripts. Your ideas deserve better.</p>
-                    </div>
-                </div>
-                
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">3</div>
-                    <div class="card-hover flex-1 bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
-                        <h3 class="text-xl font-bold mb-2">I Build Your System</h3>
-                        <p class="text-gray-400">Turn your expertise into a content machine that creates 30% more engagement every 30 days.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Guarantee Section -->
-    <section class="py-24 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-3xl p-8 sm:p-12 border border-indigo-500/30 text-center">
-                <div class="w-20 h-20 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            <div class="reveal delay-1 flex flex-col items-center gap-5 sm:gap-8">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="btn-glow text-white text-base sm:text-lg md:text-xl font-semibold py-4 sm:py-5 md:py-6 px-8 sm:px-10 md:px-14 rounded-full magnetic inline-flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-center">
+                    <span>Book a call</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">My Bold Promise</h2>
-                <p class="text-xl text-gray-300 mb-6">30% more engagement every 30 days or you don't pay a dime.</p>
-                <p class="text-gray-400">And yes→if we work together, I'll redesign your entire website for free.</p>
+                </a>
+                
+                <a href="mailto:hi@hesamsimin.ir" class="text-gray-500 hover:text-white active:text-white transition-colors text-base sm:text-lg flex items-center gap-2 group py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    hi@hesamsimin.ir
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-24 px-6 bg-gradient-to-b from-gray-900/50 to-transparent">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Look as Sharp as You Think?</h2>
-            <p class="text-xl text-gray-400 mb-10">Let's turn your expertise into the authority you deserve.</p>
-            
-            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="inline-flex glow-button pulse-ring items-center gap-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-xl font-bold hover:from-indigo-500 hover:to-purple-500 transition-all">
-                Book Your 30-Min Call Now
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
-            
-            <p class="text-gray-500 mt-6">Questions? Email me at <a href="mailto:Hi@HesamSimin.ir" class="text-indigo-400 hover:text-indigo-300 transition-colors">Hi@HesamSimin.ir</a></p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-gray-800">
-        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <span class="text-gray-500">© 2024 Hesam Simin. All rights reserved.</span>
-            <div class="flex gap-6">
-                <a href="mailto:Hi@HesamSimin.ir" class="text-gray-400 hover:text-white transition-colors">Email</a>
-                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="text-gray-400 hover:text-white transition-colors">Book a Call</a>
+    <footer class="py-8 sm:py-12 px-5 sm:px-6 border-t border-white/10 footer-safe">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-gray-600 text-xs sm:text-sm">
+            <p>&copy; <span id="year"></span> Hesam Simin. All rights reserved.</p>
+            <div class="flex items-center gap-4 sm:gap-6">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="hover:text-white active:text-white transition-colors py-1">Book Call</a>
+                <span class="text-gray-800">•</span>
+                <a href="mailto:hi@hesamsimin.ir" class="hover:text-white active:text-white transition-colors py-1">Contact</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll for any anchor links
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Cursor glow effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        // Initial check
+        revealOnScroll();
+        
+        // Check on scroll with throttle
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    revealOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Magnetic button effect
+        const magneticElements = document.querySelectorAll('.magnetic');
+        
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -242,25 +664,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
         });
     </script>
 </body>
