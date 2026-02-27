@@ -3,699 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hessamedin Simin | Hesamsimin | hesam simin | حسام سیمین </title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>RELIABLE OPERATOR | VIDEO SCRIPTS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        * { font-family: 'Space Grotesk', sans-serif; }
-        .mono { font-family: 'Space Mono', monospace; }
-        html { scroll-behavior: smooth; }
-        
-        /* Grain overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1000;
+        :root {
+            --bg-primary: #0B0F19;
+            --bg-secondary: #161B33;
+            --accent-cyan: #00E5FF;
+            --text-white: #FFFFFF;
+            --text-slate: #94A3B8;
         }
 
-        /* Glowing text */
-        .glow {
-            text-shadow: 0 0 60px rgba(251, 146, 60, 0.5);
-        }
-        @media (min-width: 768px) {
-            .glow {
-                text-shadow: 0 0 80px rgba(251, 146, 60, 0.5);
-            }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Strikethrough animation */
-        .strike {
-            position: relative;
-            display: inline-block;
+        .headline-bold {
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
-        .strike::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 0;
+
+        .glass-card {
+            background: rgba(22, 27, 51, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border: 1px solid rgba(0, 229, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .cyan-glow-line {
             height: 2px;
-            background: #ef4444;
-            transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        @media (min-width: 768px) {
-            .strike::after {
-                height: 3px;
-            }
-        }
-        .strike.active::after {
-            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
         }
 
-        /* Reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @media (min-width: 768px) {
-            .reveal {
-                transform: translateY(60px) rotateX(10deg);
-            }
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0) rotateX(0);
+        .cta-button {
+            background-color: var(--accent-cyan);
+            color: var(--bg-primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
         }
 
-        /* Stagger children */
-        .stagger .reveal:nth-child(1) { transition-delay: 0s; }
-        .stagger .reveal:nth-child(2) { transition-delay: 0.08s; }
-        .stagger .reveal:nth-child(3) { transition-delay: 0.16s; }
-        .stagger .reveal:nth-child(4) { transition-delay: 0.24s; }
-
-        /* Card hover - disabled on touch */
-        @media (hover: hover) {
-            .tilt-card {
-                transform-style: preserve-3d;
-                transition: transform 0.3s ease;
-            }
-            .tilt-card:hover {
-                transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) scale(1.02);
-            }
+        .cta-button:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 0 15px var(--accent-cyan);
         }
 
-        /* Marquee */
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .marquee {
-            animation: marquee 15s linear infinite;
-        }
-        @media (min-width: 768px) {
-            .marquee {
-                animation-duration: 20s;
-            }
+        .bracket-input {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 2px 4px;
+            font-weight: bold;
         }
 
-        /* Video frame pulse */
-        @keyframes pulse-border {
-            0%, 100% { border-color: rgba(251, 146, 60, 0.3); }
-            50% { border-color: rgba(251, 146, 60, 0.8); }
-        }
-        .video-frame {
-            animation: pulse-border 3s ease-in-out infinite;
-        }
-
-        /* Cursor blob - hidden on mobile */
-        .blob {
-            display: none;
-        }
-        @media (min-width: 768px) and (hover: hover) {
-            .blob {
-                display: block;
-                transition: transform 0.15s ease, opacity 0.3s ease;
-            }
-        }
-
-        /* Number counter */
-        .counter {
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Magnetic button - desktop only */
-        .magnetic {
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        /* Floating animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        .float {
-            animation: float 6s ease-in-out infinite;
-        }
-        .float-delayed {
-            animation: float 6s ease-in-out infinite;
-            animation-delay: -3s;
-        }
-
-        /* Mobile process line */
-        .process-line {
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, rgba(251, 146, 60, 0.5), transparent);
-        }
-        @media (min-width: 1024px) {
-            .process-line {
-                display: none;
-            }
-        }
-
-        /* Touch-friendly tap effect */
-        @media (hover: none) {
-            .tap-effect {
-                transition: transform 0.1s ease, background-color 0.1s ease;
-            }
-            .tap-effect:active {
-                transform: scale(0.98);
-            }
-        }
-
-        /* Glitch effect - desktop only */
-        @media (hover: hover) {
-            @keyframes glitch {
-                0%, 100% { transform: translate(0); }
-                20% { transform: translate(-2px, 2px); }
-                40% { transform: translate(-2px, -2px); }
-                60% { transform: translate(2px, 2px); }
-                80% { transform: translate(2px, -2px); }
-            }
-            .glitch:hover {
-                animation: glitch 0.3s ease infinite;
-            }
-        }
-
-        /* Safe area padding for notched phones */
-        @supports (padding: env(safe-area-inset-bottom)) {
-            footer {
-                padding-bottom: calc(3rem + env(safe-area-inset-bottom));
-            }
+        .sidebar-link.active {
+            color: var(--accent-cyan);
+            border-right: 3px solid var(--accent-cyan);
         }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 overflow-x-hidden">
+<body class="min-h-screen">
 
-    <!-- Cursor Blob - Desktop only -->
-    <div id="blob" class="blob fixed w-64 h-64 rounded-full bg-orange-500/20 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 opacity-100"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center">
-            <span class="text-lg sm:text-xl font-bold tracking-tighter">HS.</span>
-            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" 
-               class="magnetic group flex items-center gap-2 text-sm font-medium tap-effect py-2 px-3 -mr-3 rounded-lg">
-                <span class="relative">
-                    Let's talk
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-                </span>
-                <span class="w-2 h-2 rounded-full bg-orange-500 group-hover:scale-150 transition-transform"></span>
-            </a>
+    <!-- Header / Navigation -->
+    <header class="border-b border-slate-800 p-6 flex justify-between items-center bg-opacity-50 sticky top-0 z-50 backdrop-blur-md">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-[#00E5FF] rounded-sm flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F19" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <h1 class="headline-bold text-xl tracking-tighter">Reliable Operator</h1>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="min-h-[100svh] flex items-center justify-center relative px-4 sm:px-6 pt-16 pb-20">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-1/4 -left-20 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-orange-500/5 rounded-full blur-3xl float"></div>
-            <div class="absolute bottom-1/4 -right-20 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-orange-500/5 rounded-full blur-3xl float-delayed"></div>
+        <div class="hidden md:block">
+            <span class="text-xs text-slate-400 headline-bold mr-4">Video Strategy v1.0</span>
+            <button class="cta-button px-6 py-2 rounded text-xs">Download PDF File</button>
         </div>
+    </header>
 
-        <div class="max-w-6xl mx-auto relative z-10">
-            <!-- Video Frame Decoration - Smaller on mobile -->
-            <div class="absolute -top-6 -left-2 sm:-top-10 sm:-left-10 md:-left-20 w-12 h-12 sm:w-24 sm:h-24 border-l-2 border-t-2 border-orange-500/30 video-frame"></div>
-            <div class="absolute -bottom-6 -right-2 sm:-bottom-10 sm:-right-10 md:-right-20 w-12 h-12 sm:w-24 sm:h-24 border-r-2 border-b-2 border-orange-500/30 video-frame"></div>
-
-            <div class="reveal text-center">
-                <!-- Rec indicator -->
-                <div class="inline-flex items-center gap-2 mb-6 sm:mb-8 px-3 sm:px-4 py-1.5 sm:py-2 border border-zinc-800 rounded-full">
-                    <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full animate-pulse"></span>
-                    <span class="mono text-[10px] sm:text-xs text-zinc-500 uppercase tracking-wider sm:tracking-widest">Built to survive scrutiny</span>
-                </div>
-
-                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-[0.9] mb-6 sm:mb-8">
-                    <span class="block">Business videos</span>
-                    <span class="block text-orange-500 glow">that sell.</span>
-                </h1>
-
-                <p class="text-base sm:text-lg md:text-xl text-zinc-400 max-w-xl sm:max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2">
-                    I design short business videos and simple publishing systems that make the right people reach out — 
-                    <span class="text-zinc-200">without the circus.</span>
-                </p>
-
-                <!-- What I don't do -->
-                <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4 md:gap-8 text-zinc-500 text-sm sm:text-base">
-                    <span class="strike active">daily posting</span>
-                    <span class="strike active">personal-brand theatrics</span>
-                    <span class="strike active">endless explaining</span>
-                </div>
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 lg:p-12">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="lg:col-span-3 space-y-2">
+            <h2 class="text-xs headline-bold text-slate-500 mb-4">The Frameworks</h2>
+            <div id="nav-container" class="space-y-1">
+                <!-- Nav items generated via JS -->
             </div>
-        </div>
+        </nav>
 
-        <!-- Marquee - Inside hero at bottom -->
-        <div class="absolute bottom-0 left-0 right-0 py-4 sm:py-6 border-t border-zinc-900 overflow-hidden bg-zinc-950/80 backdrop-blur-sm">
-            <div class="flex whitespace-nowrap marquee">
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">Videos that convert</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">No fluff strategy</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">Built for replies</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">Sales-focused</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">Videos that convert</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">No fluff strategy</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">Built for replies</span>
-                <span class="text-orange-500">✦</span>
-                <span class="mx-4 sm:mx-8 text-zinc-600 uppercase tracking-widest text-xs sm:text-sm">Sales-focused</span>
-                <span class="text-orange-500">✦</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Who This Is For -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-                <div class="reveal">
-                    <span class="mono text-orange-500 text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 block">/ 01</span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 sm:mb-8">
-                        You sell something<br>
-                        <span class="text-zinc-500">real.</span>
-                    </h2>
-                    <div class="space-y-3 sm:space-y-4 text-lg sm:text-xl text-zinc-400">
-                        <p>But explaining it takes too long.</p>
-                        <p>Your videos sound generic.</p>
-                        <p>People watch, nod — <span class="text-zinc-200">and do nothing.</span></p>
-                    </div>
-                </div>
-
-                <div class="reveal stagger space-y-3 sm:space-y-4">
-                    <p class="mono text-xs sm:text-sm text-zinc-500 mb-4 sm:mb-6">This is for you if:</p>
-                    
-                    <div class="reveal tilt-card tap-effect group p-4 sm:p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl sm:rounded-2xl hover:border-orange-500/50 active:border-orange-500/50 transition-colors cursor-default">
-                        <div class="flex items-start gap-3 sm:gap-4">
-                            <span class="mono text-orange-500 text-xs sm:text-sm shrink-0">01</span>
-                            <p class="text-sm sm:text-base text-zinc-300 group-hover:text-zinc-100 transition-colors">You get views but few serious messages</p>
-                        </div>
-                    </div>
-                    
-                    <div class="reveal tilt-card tap-effect group p-4 sm:p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl sm:rounded-2xl hover:border-orange-500/50 active:border-orange-500/50 transition-colors cursor-default">
-                        <div class="flex items-start gap-3 sm:gap-4">
-                            <span class="mono text-orange-500 text-xs sm:text-sm shrink-0">02</span>
-                            <p class="text-sm sm:text-base text-zinc-300 group-hover:text-zinc-100 transition-colors">You struggle to explain your offer in under 30 seconds</p>
-                        </div>
-                    </div>
-                    
-                    <div class="reveal tilt-card tap-effect group p-4 sm:p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl sm:rounded-2xl hover:border-orange-500/50 active:border-orange-500/50 transition-colors cursor-default">
-                        <div class="flex items-start gap-3 sm:gap-4">
-                            <span class="mono text-orange-500 text-xs sm:text-sm shrink-0">03</span>
-                            <p class="text-sm sm:text-base text-zinc-300 group-hover:text-zinc-100 transition-colors">You don't want to become a full-time poster</p>
-                        </div>
-                    </div>
-                    
-                    <div class="reveal tilt-card tap-effect group p-4 sm:p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl sm:rounded-2xl hover:border-orange-500/50 active:border-orange-500/50 transition-colors cursor-default">
-                        <div class="flex items-start gap-3 sm:gap-4">
-                            <span class="mono text-orange-500 text-xs sm:text-sm shrink-0">04</span>
-                            <p class="text-sm sm:text-base text-zinc-300 group-hover:text-zinc-100 transition-colors">You care about <span class="text-orange-500 font-semibold">deals</span>, not applause</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What I Do - Big Statement -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-b from-zinc-950 via-zinc-900/50 to-zinc-950">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal text-center mb-12 sm:mb-20">
-                <span class="mono text-orange-500 text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 block">/ 02</span>
-                <h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-tight">
-                    I turn your offer into<br>
-                    <span class="relative inline-block">
-                        <span class="relative z-10">precise short-form videos</span>
-                        <span class="absolute bottom-0 sm:bottom-2 left-0 w-full h-2 sm:h-4 bg-orange-500/30 -skew-x-3"></span>
-                    </span><br>
-                    designed to trigger replies.
-                </h2>
-            </div>
-
-            <!-- Bento Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 stagger">
-                <div class="reveal tilt-card tap-effect sm:col-span-2 lg:col-span-2 p-5 sm:p-8 bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl group hover:border-orange-500/50 active:border-orange-500/50 transition-all">
-                    <div class="flex items-start justify-between mb-4 sm:mb-6">
-                        <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-orange-500/10 flex items-center justify-center text-xl sm:text-2xl">🎯</span>
-                        <span class="mono text-zinc-600 text-xs sm:text-sm">Core</span>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Problem Extraction</h3>
-                    <p class="text-sm sm:text-base text-zinc-400">I extract the core problem you solve — <span class="text-zinc-200">not the marketing version.</span></p>
-                </div>
-
-                <div class="reveal tilt-card tap-effect p-5 sm:p-8 bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl group hover:border-orange-500/50 active:border-orange-500/50 transition-all">
-                    <div class="flex items-start justify-between mb-4 sm:mb-6">
-                        <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-orange-500/10 flex items-center justify-center text-xl sm:text-2xl">✍️</span>
-                        <span class="mono text-zinc-600 text-xs sm:text-sm">Script</span>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Tight Scripts</h3>
-                    <p class="text-sm sm:text-base text-zinc-400">Built for LinkedIn-style feeds that get watched.</p>
-                </div>
-
-                <div class="reveal tilt-card tap-effect p-5 sm:p-8 bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl group hover:border-orange-500/50 active:border-orange-500/50 transition-all">
-                    <div class="flex items-start justify-between mb-4 sm:mb-6">
-                        <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-orange-500/10 flex items-center justify-center text-xl sm:text-2xl">🎬</span>
-                        <span class="mono text-zinc-600 text-xs sm:text-sm">Edit</span>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Retention Editing</h3>
-                    <p class="text-sm sm:text-base text-zinc-400">For credibility, not virality.</p>
-                </div>
-
-                <div class="reveal tilt-card tap-effect sm:col-span-2 lg:col-span-2 p-5 sm:p-8 bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/30 rounded-2xl sm:rounded-3xl group">
-                    <div class="flex items-start justify-between mb-4 sm:mb-6">
-                        <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-orange-500/20 flex items-center justify-center text-xl sm:text-2xl">🔄</span>
-                        <span class="mono text-orange-500 text-xs sm:text-sm">System</span>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Repeatable Posting Flow</h3>
-                    <p class="text-sm sm:text-base text-zinc-400">A system you can run alone — <span class="text-zinc-200">without burning out.</span></p>
-                </div>
-            </div>
-
-            <!-- Anti-list -->
-            <div class="reveal mt-10 sm:mt-16 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-6 text-zinc-500 mono text-xs sm:text-sm text-center">
-                <span class="strike active">No trends</span>
-                <span class="strike active">No storytelling exercises</span>
-                <span class="strike active">No personality cosplay</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal text-center mb-12 sm:mb-20">
-                <span class="mono text-orange-500 text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 block">/ 03</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">How it works</h2>
-            </div>
-
-            <!-- Timeline -->
-            <div class="relative">
-                <!-- Mobile vertical line -->
-                <div class="process-line lg:hidden"></div>
+        <!-- Main Script Content -->
+        <section class="lg:col-span-9">
+            <div id="script-display" class="glass-card p-8 lg:p-12 relative overflow-hidden">
+                <!-- Decorative Glow Line -->
+                <div class="absolute top-0 left-0 w-full cyan-glow-line"></div>
                 
-                <!-- Desktop vertical line -->
-                <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-500/50 to-transparent"></div>
-
-                <div class="space-y-8 sm:space-y-12 lg:space-y-24">
-                    <!-- Step 1 -->
-                    <div class="reveal lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                        <div class="hidden lg:block lg:text-right">
-                            <span class="inline-block mono text-8xl font-bold text-zinc-900">01</span>
+                <div id="content-area">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span id="script-id" class="text-cyan-400 headline-bold text-sm">SCRIPT 01</span>
+                            <h2 id="script-title" class="headline-bold text-4xl mt-2">The Bold Opinion</h2>
                         </div>
-                        <div class="relative pl-10 lg:pl-0">
-                            <div class="lg:hidden absolute left-[14px] top-1 w-3 h-3 bg-orange-500 rounded-full"></div>
-                            <div class="hidden lg:block absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <div class="lg:pl-12">
-                                <span class="lg:hidden mono text-orange-500 text-xs mb-2 block">Step 01</span>
-                                <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Breakdown</h3>
-                                <p class="text-zinc-400 text-base sm:text-lg">We reduce your offer to what buyers decide on — price logic, risk, alternatives.</p>
-                            </div>
+                        <div class="bg-blue-900 bg-opacity-20 border border-blue-500 border-opacity-30 rounded px-3 py-1">
+                            <span id="script-goal" class="text-[10px] text-blue-300 headline-bold">BUILD CREDIBILITY</span>
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="reveal lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                        <div class="hidden lg:block lg:text-right order-2 lg:order-1 relative">
-                            <div class="hidden lg:block absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <div class="lg:pr-12">
-                                <h3 class="text-3xl font-bold mb-4">Script</h3>
-                                <p class="text-zinc-400 text-lg">Clear, sharp language that survives skimming.</p>
-                            </div>
-                        </div>
-                        <div class="hidden lg:block order-1 lg:order-2">
-                            <span class="inline-block mono text-8xl font-bold text-zinc-900">02</span>
-                        </div>
-                        <!-- Mobile version -->
-                        <div class="lg:hidden relative pl-10">
-                            <div class="absolute left-[14px] top-1 w-3 h-3 bg-orange-500 rounded-full"></div>
-                            <span class="mono text-orange-500 text-xs mb-2 block">Step 02</span>
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Script</h3>
-                            <p class="text-zinc-400 text-base sm:text-lg">Clear, sharp language that survives skimming.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="reveal lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                        <div class="hidden lg:block lg:text-right">
-                            <span class="inline-block mono text-8xl font-bold text-zinc-900">03</span>
-                        </div>
-                        <div class="relative pl-10 lg:pl-0">
-                            <div class="lg:hidden absolute left-[14px] top-1 w-3 h-3 bg-orange-500 rounded-full"></div>
-                            <div class="hidden lg:block absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <div class="lg:pl-12">
-                                <span class="lg:hidden mono text-orange-500 text-xs mb-2 block">Step 03</span>
-                                <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Produce</h3>
-                                <p class="text-zinc-400 text-base sm:text-lg">Short videos engineered for watch time and replies.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="reveal lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                        <div class="hidden lg:block lg:text-right order-2 lg:order-1 relative">
-                            <div class="hidden lg:block absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <div class="lg:pr-12">
-                                <h3 class="text-3xl font-bold mb-4">Publish</h3>
-                                <p class="text-zinc-400 text-lg">A low-effort system you can maintain without burning out.</p>
-                            </div>
-                        </div>
-                        <div class="hidden lg:block order-1 lg:order-2">
-                            <span class="inline-block mono text-8xl font-bold text-zinc-900">04</span>
-                        </div>
-                        <!-- Mobile version -->
-                        <div class="lg:hidden relative pl-10">
-                            <div class="absolute left-[14px] top-1 w-3 h-3 bg-orange-500 rounded-full"></div>
-                            <span class="mono text-orange-500 text-xs mb-2 block">Step 04</span>
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Publish</h3>
-                            <p class="text-zinc-400 text-base sm:text-lg">A low-effort system you can maintain without burning out.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Me -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 bg-zinc-900/30">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <div class="reveal">
-                    <span class="mono text-orange-500 text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 block">/ 04</span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6 sm:mb-8">
-                        My background isn't<br>
-                        <span class="line-through text-zinc-600 decoration-orange-500">influencer-led.</span>
-                    </h2>
-                    <p class="text-lg sm:text-xl text-zinc-400 mb-6 sm:mb-8">
-                        Everything is built to support a sales call — <span class="text-zinc-200">not a personal brand.</span>
+                    <p id="script-desc" class="text-slate-400 mb-10 max-w-2xl">
+                        Best for building credibility, sparking engagement, and showing your POV. Don't hedge—commit to the take.
                     </p>
-                </div>
 
-                <div class="reveal">
-                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                        <div class="tilt-card tap-effect p-4 sm:p-6 bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl text-center group hover:border-orange-500/50 active:border-orange-500/50 transition-colors">
-                            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">💼</div>
-                            <span class="font-medium text-sm sm:text-base">Sales & Negotiation</span>
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-xs headline-bold text-cyan-500 mb-3 flex items-center gap-2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 19l7-7-7-7"></path></svg>
+                                Hook (0-5 Sec)
+                            </h4>
+                            <div id="hook-content" class="text-xl leading-relaxed font-medium">
+                                "Unpopular opinion: <span class="bracket-input">[common belief]</span> is actually <span class="bracket-input">[why it's wrong]</span>."
+                            </div>
                         </div>
-                        <div class="tilt-card tap-effect p-4 sm:p-6 bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl text-center group hover:border-orange-500/50 active:border-orange-500/50 transition-colors">
-                            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🎬</div>
-                            <span class="font-medium text-sm sm:text-base">Business Video Editing</span>
+
+                        <div>
+                            <h4 class="text-xs headline-bold text-cyan-500 mb-3 flex items-center gap-2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 19l7-7-7-7"></path></svg>
+                                Body (5-45 Sec)
+                            </h4>
+                            <div id="body-content" class="text-lg text-slate-300 space-y-4">
+                                <p>Here's what most people miss:</p>
+                                <p><span class="bracket-input">[Explain your contrarian take in 1-2 punchy sentences.]</span></p>
+                                <p>I've seen <span class="bracket-input">[specific example]</span>. And the result? <span class="bracket-input">[compelling outcome]</span>.</p>
+                            </div>
                         </div>
-                        <div class="tilt-card tap-effect p-4 sm:p-6 bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl text-center group hover:border-orange-500/50 active:border-orange-500/50 transition-colors">
-                            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🔍</div>
-                            <span class="font-medium text-sm sm:text-base">SEO & Web Structure</span>
+
+                        <div>
+                            <h4 class="text-xs headline-bold text-cyan-500 mb-3 flex items-center gap-2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 19l7-7-7-7"></path></svg>
+                                CTA
+                            </h4>
+                            <div id="cta-content" class="text-lg text-slate-300">
+                                Do you agree? Drop a <span class="bracket-input">[emoji]</span> below or fight me in the comments.
+                            </div>
                         </div>
-                        <div class="tilt-card tap-effect p-4 sm:p-6 bg-zinc-900 border border-zinc-800 rounded-xl sm:rounded-2xl text-center group hover:border-orange-500/50 active:border-orange-500/50 transition-colors">
-                            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">⚡</div>
-                            <span class="font-medium text-sm sm:text-base">Lean Operations</span>
-                        </div>
+                    </div>
+
+                    <!-- Pro Tip Section -->
+                    <div class="mt-12 p-6 bg-[#161B33] rounded-lg border-l-4 border-cyan-400">
+                        <h5 class="headline-bold text-xs mb-2">OPERATOR PRO TIP</h5>
+                        <p id="creator-tip" class="text-sm text-slate-400">Bold opinions get shares. The more provocative, the better the algorithm treats you.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Results -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal text-center mb-12 sm:mb-20">
-                <span class="mono text-orange-500 text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 block">/ 05</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">What changes</h2>
-                <p class="text-zinc-500 mt-3 sm:mt-4 text-sm sm:text-base">Clients usually notice:</p>
-            </div>
-
-            <div class="grid sm:grid-cols-3 gap-4 sm:gap-6 stagger">
-                <div class="reveal tilt-card tap-effect group p-6 sm:p-10 bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl text-center hover:border-orange-500/50 active:border-orange-500/50 transition-all">
-                    <div class="text-4xl sm:text-6xl font-bold text-orange-500 mb-3 sm:mb-4 counter group-hover:scale-110 transition-transform">↑</div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Faster Replies</h3>
-                    <p class="text-zinc-500 text-sm sm:text-base">from serious prospects</p>
-                </div>
-
-                <div class="reveal tilt-card tap-effect group p-6 sm:p-10 bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl text-center hover:border-orange-500/50 active:border-orange-500/50 transition-all">
-                    <div class="text-4xl sm:text-6xl font-bold text-orange-500 mb-3 sm:mb-4 counter group-hover:scale-110 transition-transform">↓</div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Fewer Loops</h3>
-                    <p class="text-zinc-500 text-sm sm:text-base">explanation loops on calls</p>
-                </div>
-
-                <div class="reveal tilt-card tap-effect group p-6 sm:p-10 bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl text-center hover:border-orange-500/50 active:border-orange-500/50 transition-all">
-                    <div class="text-4xl sm:text-6xl font-bold text-orange-500 mb-3 sm:mb-4 counter group-hover:scale-110 transition-transform">◎</div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Better Qualified</h3>
-                    <p class="text-zinc-500 text-sm sm:text-base">inbound messages</p>
+            <!-- Footer Meta -->
+            <div class="mt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-[10px] headline-bold">
+                <p>© 2026 // Hesam Simin</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <span class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-cyan-400"></div> SERVER ONLINE</span>
+                    <span>ENCRYPTED_COPY_v2</span>
                 </div>
             </div>
-
-            <p class="reveal text-center text-zinc-600 mt-8 sm:mt-12 mono text-xs sm:text-sm">No dashboards. No inflated metrics.</p>
-        </div>
-    </section>
-
-    <!-- Terms -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="reveal relative">
-                <!-- Decorative quotes - smaller on mobile -->
-                <span class="absolute -top-6 sm:-top-10 left-0 sm:-left-6 text-6xl sm:text-9xl text-orange-500/10 font-serif">"</span>
-                
-                <div class="text-center p-8 sm:p-12 md:p-16 bg-gradient-to-br from-orange-500/10 via-zinc-900 to-zinc-900 border border-orange-500/30 rounded-2xl sm:rounded-3xl">
-                    <span class="mono text-orange-500 text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 block">/ Terms</span>
-                    <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed mb-6 sm:mb-8">
-                        If the first delivery doesn't move you closer to real conversations, we stop.
-                    </p>
-                    <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 text-zinc-500 text-sm sm:text-base">
-                        <span class="flex items-center justify-center gap-2">
-                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
-                            No long contracts
-                        </span>
-                        <span class="flex items-center justify-center gap-2">
-                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
-                            No sunk-cost pressure
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden">
-        <!-- Background glow -->
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-64 sm:w-96 h-64 sm:h-96 bg-orange-500/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="reveal">
-                <h2 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter mb-6 sm:mb-8">
-                    Ready to make<br>
-                    <span class="text-orange-500 glow">selling easier?</span>
-                </h2>
-
-                <a href="https://cal.com/hesamedin-simin/30min" target="_blank"
-                   class="magnetic tap-effect group inline-flex items-center gap-3 sm:gap-4 bg-orange-500 hover:bg-orange-400 active:bg-orange-600 text-zinc-950 px-8 sm:px-10 py-5 sm:py-6 rounded-full font-bold text-lg sm:text-xl transition-all hover:scale-105 active:scale-95">
-                    <span>Book a 30min call</span>
-                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-zinc-950/20 flex items-center justify-center group-hover:translate-x-2 transition-transform text-xl sm:text-2xl">→</span>
-                </a>
-
-                <p class="mt-8 sm:mt-12 text-zinc-600 max-w-sm sm:max-w-md mx-auto text-sm sm:text-base px-4">
-                    If you're looking for motivation, trends, or visibility games — this isn't it.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-zinc-900">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col gap-6 sm:gap-8 sm:flex-row sm:justify-between sm:items-center">
-                <div class="flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
-                    <span class="text-xl sm:text-2xl font-bold tracking-tighter">HS.</span>
-                    <span class="text-zinc-600 text-sm">© Hesam Simin</span>
-                </div>
-                <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
-                    <a href="mailto:hi@hesamsimin.ir" class="mono text-xs sm:text-sm text-zinc-500 hover:text-orange-500 active:text-orange-500 transition-colors glitch tap-effect py-2 px-3">
-                        hi@hesamsimin.ir
-                    </a>
-                    <a href="https://cal.com/hesamedin-simin/30min" target="_blank" 
-                       class="mono text-xs sm:text-sm text-zinc-500 hover:text-orange-500 active:text-orange-500 transition-colors flex items-center gap-2 tap-effect py-2 px-3">
-                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        Available for calls
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </section>
+    </main>
 
     <script>
-        // Cursor blob follower - desktop only
-        const blob = document.getElementById('blob');
-        if (window.matchMedia('(hover: hover)').matches) {
-            document.addEventListener('mousemove', (e) => {
-                blob.style.left = e.clientX + 'px';
-                blob.style.top = e.clientY + 'px';
-            });
+        const scripts = [
+            {
+                id: "01",
+                title: "The Bold Opinion",
+                goal: "CREDIBILITY + CONVO",
+                desc: "Best for building credibility, sparking engagement, and showing your POV. Don't hedge—commit to the take.",
+                hook: `"Unpopular opinion: <span class="bracket-input">[common belief]</span> is actually <span class="bracket-input">[why it's wrong]</span>."`,
+                body: `<p>Here's what most people miss:</p><p><span class="bracket-input">[Explain your contrarian take in 1-2 punchy sentences.]</span></p><p>I've seen <span class="bracket-input">[specific example]</span>. And the result? <span class="bracket-input">[compelling outcome]</span>.</p>`,
+                cta: `Do you agree? Drop a <span class="bracket-input">[emoji]</span> below or fight me in the comments.`,
+                tip: "Bold opinions get shares and comments. Don't hedge; commit to the take, even if it's slightly provocative."
+            },
+            {
+                id: "02",
+                title: "The Story Hook",
+                goal: "EMOTIONAL CONNECTION",
+                desc: "Connect emotionally and keep viewers watching by sharing a pivotal moment.",
+                hook: `"The day I <span class="bracket-input">[something happened]</span> changed everything about how I <span class="bracket-input">[do X]</span>."`,
+                body: `<p>I remember it clearly. I was <span class="bracket-input">[situation: where, what]</span>.</p><p>But then <span class="bracket-input">[what actually happened]</span>. And I realized: <span class="bracket-input">[Core lesson]</span>.</p>`,
+                cta: `Has something like this happened to you? Tell me in the comments—I read every one.`,
+                tip: "Specificity makes stories believable. Real details (names, places, feelings) beat vague generalities every time."
+            },
+            {
+                id: "03",
+                title: "The Quick Win",
+                goal: "AUTHORITY + GROWTH",
+                desc: "Teach one thing, earn trust fast. The hook must promise a specific, believable result.",
+                hook: `"Here's how to <span class="bracket-input">[achieve result]</span> in <span class="bracket-input">[time frame]</span> - even if <span class="bracket-input">[objection]</span>."`,
+                body: `<p>Step 1: <span class="bracket-input">[Action]</span>. Most people skip this—don't.</p><p>Step 2: <span class="bracket-input">[Detail that matters]</span>.</p><p>Step 3: This is the part that makes the difference: <span class="bracket-input">[key insight]</span>.</p>`,
+                cta: `Try this today and let me know how it goes. Save this so you can come back to it.`,
+                tip: "The hook must promise a specific result. 'Cut your editing time in half' works better than 'be better at editing'."
+            },
+            {
+                id: "04",
+                title: "Relatable Struggle",
+                goal: "COMMUNITY BUILDING",
+                desc: "Turn your mess into your message. Vulnerability is a magnet for comments.",
+                hook: `"Can we talk about how <span class="bracket-input">[frustrating]</span> it is when <span class="bracket-input">[situation]</span>?"`,
+                body: `<p>Because <span class="bracket-input">[describe the struggle in detail]</span>.</p><p>I used to feel <span class="bracket-input">[wrong approach]</span>. Now I <span class="bracket-input">[what you do instead]</span>.</p>`,
+                cta: `Tell me I'm not the only one. Comment <span class="bracket-input">[word]</span> if you've felt this too.`,
+                tip: "Vulnerability is a magnet. The more specific the struggle, the more universal it actually feels."
+            },
+            {
+                id: "05",
+                title: "The Myth Buster",
+                goal: "EXPERT POSITIONING",
+                desc: "Position yourself as the expert by debunking common misconceptions in your niche.",
+                hook: `"<span class="bracket-input">[Number]</span> things people get completely wrong about <span class="bracket-input">[your topic]</span>."`,
+                body: `<p>Myth #1: <span class="bracket-input">[Misconception]</span>. The truth? <span class="bracket-input">[Correct understanding]</span>.</p><p>Myth #2: <span class="bracket-input">[Misconception]</span>. What actually works: <span class="bracket-input">[correct approach]</span>.</p>`,
+                cta: `Which of these surprised you most? Comment the number below. Follow for more truths.`,
+                tip: "Pick myths your audience actually believes, not ones that make them feel dumb. Aim for 'oh wow' moments."
+            },
+            {
+                id: "06",
+                title: "Call To Action",
+                goal: "CONVERSION",
+                desc: "Lead with the problem, not the product. Your audience cares what it solves, not what it is.",
+                hook: `"If you've ever struggled with <span class="bracket-input">[specific problem]</span>, I made something for you."`,
+                body: `<p>It's called <span class="bracket-input">[resource name]</span> and it's <span class="bracket-input">[free/available]</span>.</p><p>Inside you get <span class="bracket-input">[benefit 1]</span> and <span class="bracket-input">[benefit 2]</span>.</p>`,
+                cta: `Comment <span class="bracket-input">[word]</span> and I'll DM you the link. Or hit the link in my bio.`,
+                tip: "Lead with the problem, not the product. Your audience doesn't care what it is—they care what it solves."
+            },
+            {
+                id: "07",
+                title: "Behind-The-Scenes",
+                goal: "LOYALTY",
+                desc: "Build audience loyalty and connection by showing the unfiltered reality of your work.",
+                hook: `"What <span class="bracket-input">[your role]</span> actually looks like versus what people think it looks like."`,
+                body: `<p>People think <span class="bracket-input">[assumption]</span>. But the reality? <span class="bracket-input">[honesty]</span>.</p><p>The part no one sees is <span class="bracket-input">[insight]</span>.</p>`,
+                cta: `Follow if you want the unfiltered version. I share this kind of thing every week.`,
+                tip: "Authenticity compounds. One honest behind-the-scenes video often outperforms 10 polished tutorials."
+            }
+        ];
+
+        let activeIndex = 0;
+
+        function renderNav() {
+            const container = document.getElementById('nav-container');
+            container.innerHTML = scripts.map((s, idx) => `
+                <button onclick="loadScript(${idx})" class="sidebar-link w-full text-left py-3 px-4 rounded text-sm headline-bold hover:bg-white hover:bg-opacity-5 transition-all flex items-center justify-between ${idx === activeIndex ? 'active bg-white bg-opacity-5' : 'text-slate-500'}">
+                    <span>${s.title}</span>
+                    <span class="text-[10px] opacity-40">${s.id}</span>
+                </button>
+            `).join('');
         }
 
-        // Reveal on scroll with adjusted threshold for mobile
-        const isMobile = window.innerWidth < 768;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Trigger strikethrough on children
-                    entry.target.querySelectorAll('.strike').forEach((strike, i) => {
-                        setTimeout(() => strike.classList.add('active'), i * 150);
-                    });
-                }
-            });
-        }, {
-            threshold: isMobile ? 0.05 : 0.1,
-            rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px'
-        });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Magnetic button effect - desktop only
-        if (window.matchMedia('(hover: hover)').matches) {
-            document.querySelectorAll('.magnetic').forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-                });
-                btn.addEventListener('mouseleave', () => {
-                    btn.style.transform = 'translate(0, 0)';
-                });
-            });
-
-            // Tilt card effect - desktop only
-            document.querySelectorAll('.tilt-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width - 0.5;
-                    const y = (e.clientY - rect.top) / rect.height - 0.5;
-                    card.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.02)`;
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
-                });
-            });
+        function loadScript(index) {
+            activeIndex = index;
+            const s = scripts[index];
+            
+            // Fade out effect
+            const area = document.getElementById('content-area');
+            area.style.opacity = 0;
+            
+            setTimeout(() => {
+                document.getElementById('script-id').innerText = `SCRIPT ${s.id}`;
+                document.getElementById('script-title').innerText = s.title;
+                document.getElementById('script-goal').innerText = s.goal;
+                document.getElementById('script-desc').innerText = s.desc;
+                document.getElementById('hook-content').innerHTML = s.hook;
+                document.getElementById('body-content').innerHTML = s.body;
+                document.getElementById('cta-content').innerHTML = s.cta;
+                document.getElementById('creator-tip').innerText = s.tip;
+                
+                area.style.opacity = 1;
+                renderNav();
+            }, 150);
         }
+
+        // Initialize
+        window.onload = () => {
+            renderNav();
+            loadScript(0);
+        };
     </script>
-
 </body>
 </html>
