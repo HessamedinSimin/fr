@@ -1,872 +1,670 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calm, Credible LinkedIn Video | Editing for Serious Operators</title>
-  <meta name="description" content="LinkedIn video editing for serious founders, consultants, and creators. Calm authority. Clear delivery. Subtitles that respect your tone." />
-  <meta name="theme-color" content="#0b1220" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style>
-    :root { color-scheme: light; }
-    html { scroll-behavior: smooth; }
-    .noise {
-      background-image:
-        radial-gradient(circle at 20% 10%, rgba(99,102,241,0.10), transparent 45%),
-        radial-gradient(circle at 80% 0%, rgba(20,184,166,0.10), transparent 40%),
-        radial-gradient(circle at 70% 85%, rgba(59,130,246,0.10), transparent 45%),
-        radial-gradient(circle at 10% 90%, rgba(148,163,184,0.10), transparent 40%);
-    }
-    .glass {
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.70);
-    }
-    .ring-soft { box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08), 0 10px 30px rgba(2,6,23,0.08); }
-    .focus-ring:focus { outline: none; box-shadow: 0 0 0 4px rgba(99,102,241,0.25); }
-    .btn {
-      transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
-    }
-    .btn:active { transform: translateY(1px); }
-    .reveal { opacity: 0; transform: translateY(8px); transition: opacity 600ms ease, transform 600ms ease; }
-    .reveal.is-in { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .btn, .reveal { transition: none; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hessamedin Simin | Hesamsimin | hesam simin | حسام سیمین </title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-1: #6366f1;
+            --gradient-2: #ec4899;
+            --gradient-3: #06b6d4;
+        }
+
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0f0f1a, #1a1a2e, #16213e, #0f0f1a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating orbs - smaller on mobile */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+            top: 50%;
+            left: 50%;
+            animation-delay: -10s;
+        }
+
+        @media (min-width: 768px) {
+            .orb {
+                filter: blur(80px);
+                opacity: 0.5;
+            }
+            .orb-1 {
+                width: 600px;
+                height: 600px;
+                top: -200px;
+                right: -200px;
+            }
+            .orb-2 {
+                width: 400px;
+                height: 400px;
+                bottom: -100px;
+                left: -100px;
+            }
+            .orb-3 {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.98); }
+            75% { transform: translate(15px, 30px) scale(1.02); }
+        }
+
+        @media (min-width: 768px) {
+            @keyframes float {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                25% { transform: translate(50px, -50px) scale(1.1); }
+                50% { transform: translate(-30px, 30px) scale(0.95); }
+                75% { transform: translate(20px, 50px) scale(1.05); }
+            }
+        }
+
+        /* Text gradient animation */
+        .text-gradient {
+            background: linear-gradient(90deg, #6366f1, #ec4899, #06b6d4, #6366f1);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGradient 8s ease infinite;
+        }
+
+        @keyframes textGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Glowing button */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #6366f1, #ec4899, #06b6d4);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(15px);
+        }
+
+        .btn-glow:hover::before {
+            opacity: 1;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Card hover effects */
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 30px 60px -20px rgba(99, 102, 241, 0.3);
+        }
+
+        .service-card .icon-wrapper {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        /* Timeline styling */
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 56px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item::before {
+                left: 28px;
+                top: 70px;
+                height: calc(100% - 20px);
+            }
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-number {
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-number {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item:hover .timeline-number {
+                transform: scale(1.2);
+                box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        /* Marquee effect */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Noise texture overlay */
+        .noise::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Cursor glow effect */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Quote section */
+        .quote-mark {
+            font-size: 200px;
+            line-height: 1;
+            opacity: 0.1;
+            position: absolute;
+            font-family: Georgia, serif;
+        }
+
+        /* Magnetic button effect handled by JS */
+        .magnetic {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 767px) {
+            /* Reduce section padding on mobile */
+            .section-mobile {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            /* Better touch targets */
+            .btn-glow {
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Disable hover effects on mobile */
+            .service-card:hover {
+                transform: none;
+            }
+
+            .service-card:active {
+                transform: scale(0.98);
+                border-color: rgba(99, 102, 241, 0.5);
+            }
+
+            /* Simplified quote marks on mobile */
+            .quote-mobile {
+                font-size: 80px !important;
+            }
+
+            /* Better marquee speed on mobile */
+            .marquee-content {
+                animation-duration: 20s;
+            }
+        }
+
+        /* Safe area handling for notched phones */
+        @supports (padding: max(0px)) {
+            .nav-safe {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+            }
+            .footer-safe {
+                padding-bottom: max(3rem, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Smooth scrolling on iOS */
+        html {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        /* Prevent text size adjustment on orientation change */
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-200/70 selection:text-slate-900">
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[999] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg ring-soft">Skip to content</a>
+<body class="gradient-bg text-white min-h-screen overflow-x-hidden noise">
+    
+    <!-- Cursor glow -->
+    <div class="cursor-glow hidden md:block" id="cursorGlow"></div>
 
-  <!-- Top bar -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 glass">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center ring-soft" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M17 9l4-2v10l-4-2V9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="leading-tight">
-          <p class="text-sm font-semibold">Calm Authority Video</p>
-          <p class="text-xs text-slate-600">LinkedIn editing for serious operators</p>
-        </div>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
-        <a class="hover:text-slate-900" href="#proof">Proof</a>
-        <a class="hover:text-slate-900" href="#system">System</a>
-        <a class="hover:text-slate-900" href="#work">Examples</a>
-        <a class="hover:text-slate-900" href="#faq">FAQ</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <button id="btnSampleTop" class="btn hidden sm:inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 focus-ring" type="button">
-          Get a sample edit
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M9 7H17V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <button id="btnCallTop" class="btn inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 shadow-sm focus-ring" type="button">
-          Book a fit call
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9Z" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </button>
-      </div>
+    <!-- Floating orbs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
-  </header>
 
-  <main id="main" class="noise">
-    <!-- Hero -->
-    <section class="mx-auto max-w-6xl px-4 pt-12 pb-10 md:pt-16">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 glass px-3 py-1 text-xs text-slate-700 ring-soft">
-            <span class="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
-            Built for founders, consultants, and creators who value credibility
-          </div>
-          <h1 class="mt-5 text-4xl md:text-5xl font-semibold tracking-tight text-slate-900">
-            LinkedIn video that sounds like you.
-            <span class="block text-slate-700">Calm. Clear. Credible.</span>
-          </h1>
-          <div class="mt-5 space-y-3 text-lg text-slate-700">
-            <p>We edit your videos to protect your reputation.</p>
-            <p>Better audio. Better pacing. Subtitles that fit your tone.</p>
-            <p>You stay serious. You show up more often.</p>
-          </div>
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <button id="btnPrimaryHero" class="btn inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-base font-semibold text-white hover:bg-indigo-700 shadow-sm focus-ring" type="button">
-              Book a 15 minute fit call
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9Z" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </button>
-            <button id="btnSecondaryHero" class="btn inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-50 focus-ring" type="button">
-              Get a sample edit
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-4 sm:px-6 py-4 sm:py-6 nav-safe">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl sm:text-2xl font-display font-bold tracking-tight hover:text-indigo-400 transition-colors magnetic">
+                Hesam Simin
+            </a>
+            <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="btn-glow text-white font-semibold text-sm sm:text-base py-2.5 sm:py-3 px-5 sm:px-6 rounded-full magnetic">
+                Book Call
+            </a>
+        </div>
+    </nav>
 
-          <div class="mt-7 grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Operator tone</p>
-              <p class="mt-1 text-xs text-slate-600">No influencer edits</p>
+    <!-- Hero Section -->
+    <section class="min-h-screen min-h-[100dvh] flex items-center justify-center relative px-5 sm:px-6 pt-24 sm:pt-20 pb-16">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="reveal" id="heroReveal">
+                <p class="text-indigo-400 font-medium mb-4 sm:mb-6 tracking-widest uppercase text-xs sm:text-sm">Content Strategy & Editing</p>
+                <h1 class="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] sm:leading-[0.95] mb-6 sm:mb-8">
+                    Capture
+                    <span class="text-gradient block mt-1 sm:mt-2">attention</span>
+                    <span class="block mt-1 sm:mt-2">without risk.</span>
+                </h1>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Clean captions</p>
-              <p class="mt-1 text-xs text-slate-600">Readable and calm</p>
+            <p class="reveal delay-1 text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2">
+                For founders, coaches, and service providers who already know their craft and want their content to reflect it.
+            </p>
+            <div class="reveal delay-2">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="btn-glow inline-flex items-center gap-2 sm:gap-3 text-white text-base sm:text-lg font-semibold py-4 sm:py-5 px-8 sm:px-10 rounded-full magnetic">
+                    <span>Book a 30-min call</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Fast turnaround</p>
-              <p class="mt-1 text-xs text-slate-600">Reliable cadence</p>
-            </div>
-            <div class="rounded-2xl border border-slate-200 bg-white/70 glass p-4 ring-soft reveal">
-              <p class="text-sm font-semibold">Reputation first</p>
-              <p class="mt-1 text-xs text-slate-600">Consistency without stress</p>
-            </div>
-          </div>
         </div>
 
-        <!-- Visual panel -->
-        <div class="lg:col-span-5">
-          <div class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-            <div class="p-5 border-b border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-rose-500" aria-hidden="true"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-amber-500" aria-hidden="true"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
-              </div>
-              <p class="text-xs text-slate-600">LinkedIn video preview</p>
-            </div>
-            <div class="p-6">
-              <div class="relative aspect-[9/16] w-full rounded-2xl bg-slate-950 overflow-hidden">
-                <div class="absolute inset-0 opacity-80" aria-hidden="true">
-                  <svg class="h-full w-full" viewBox="0 0 600 1000" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                        <stop offset="0" stop-color="#111827"/>
-                        <stop offset="1" stop-color="#0b1220"/>
-                      </linearGradient>
-                      <radialGradient id="g2" cx="30%" cy="20%" r="70%">
-                        <stop offset="0" stop-color="#6366f1" stop-opacity="0.35"/>
-                        <stop offset="1" stop-color="#000000" stop-opacity="0"/>
-                      </radialGradient>
-                      <radialGradient id="g3" cx="80%" cy="70%" r="70%">
-                        <stop offset="0" stop-color="#14b8a6" stop-opacity="0.25"/>
-                        <stop offset="1" stop-color="#000000" stop-opacity="0"/>
-                      </radialGradient>
-                    </defs>
-                    <rect width="600" height="1000" fill="url(#g1)"/>
-                    <rect width="600" height="1000" fill="url(#g2)"/>
-                    <rect width="600" height="1000" fill="url(#g3)"/>
-                    <circle cx="300" cy="320" r="120" fill="#0f172a" opacity="0.8" />
-                    <path d="M260 260c30-20 80-20 110 0" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" opacity="0.6"/>
-                    <path d="M240 420c40 30 120 30 160 0" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" opacity="0.55"/>
-                    <rect x="70" y="720" width="460" height="44" rx="14" fill="#0b1220" opacity="0.9"/>
-                    <rect x="90" y="733" width="320" height="18" rx="9" fill="#e2e8f0" opacity="0.85"/>
-                    <rect x="70" y="780" width="460" height="44" rx="14" fill="#0b1220" opacity="0.75"/>
-                    <rect x="90" y="793" width="260" height="18" rx="9" fill="#e2e8f0" opacity="0.75"/>
-                  </svg>
-                </div>
+        <!-- Scroll indicator - hidden on very small screens -->
+        <div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-gray-500 hidden sm:flex">
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+            <div class="w-px h-10 sm:h-12 bg-gradient-to-b from-gray-500 to-transparent animate-pulse"></div>
+        </div>
+    </section>
 
-                <div class="absolute inset-x-4 top-4 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="h-9 w-9 rounded-full bg-slate-200/20 border border-white/10"></div>
-                    <div>
-                      <p class="text-sm text-white font-semibold">Your name</p>
-                      <p class="text-xs text-slate-300">Founder, Consultant</p>
+    <!-- Marquee Section -->
+    <section class="py-4 sm:py-6 md:py-8 border-y border-white/10 overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="inline-flex items-center gap-4 sm:gap-6 md:gap-8 text-base sm:text-xl md:text-2xl font-display text-gray-600 px-4 sm:px-6 md:px-8">
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                </span>
+                <span class="inline-flex items-center gap-4 sm:gap-6 md:gap-8 text-base sm:text-xl md:text-2xl font-display text-gray-600 px-4 sm:px-6 md:px-8">
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                    <span>VIDEO EDITING</span>
+                    <span class="text-indigo-500">✦</span>
+                    <span>CONTENT STRUCTURE</span>
+                    <span class="text-pink-500">✦</span>
+                    <span>REPURPOSING</span>
+                    <span class="text-cyan-500">✦</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                <span class="reveal text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Services</span>
+                <h2 class="reveal delay-1 font-display text-3xl sm:text-4xl md:text-6xl font-bold mt-3 sm:mt-4">What I do</h2>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <!-- Service 1 -->
+                <div class="reveal delay-1 service-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl group">
+                    <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-indigo-600/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 md:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
                     </div>
-                  </div>
-                  <div class="rounded-full bg-white/10 border border-white/10 px-3 py-1 text-xs text-slate-200">Clean audio</div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">Video Editing</h3>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                        Short-form and long-form business video, edited for clarity and pacing.
+                    </p>
                 </div>
 
-                <div class="absolute inset-x-5 bottom-5 space-y-2">
-                  <div class="rounded-xl bg-white/10 border border-white/10 px-3 py-2 text-xs text-slate-200">
-                    Captions that feel professional.
-                  </div>
-                  <div class="flex gap-2">
-                    <div class="h-10 flex-1 rounded-xl bg-white/10 border border-white/10"></div>
-                    <div class="h-10 w-14 rounded-xl bg-white/10 border border-white/10"></div>
-                  </div>
+                <!-- Service 2 -->
+                <div class="reveal delay-2 service-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl group">
+                    <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-pink-600/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 md:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">Content Structure</h3>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                        Hooks, message flow, and CTAs that make ideas easier to follow.
+                    </p>
                 </div>
-              </div>
 
-              <div class="mt-5 grid grid-cols-3 gap-3">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                  <p class="text-xs font-semibold text-slate-900">Hook</p>
-                  <p class="mt-1 text-[11px] text-slate-600">Tight opening</p>
+                <!-- Service 3 -->
+                <div class="reveal delay-3 service-card p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl group sm:col-span-2 md:col-span-1">
+                    <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-cyan-600/20 rounded-xl sm:rounded-2xl flex items-center justify-center mb-5 sm:mb-6 md:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">Repurposing</h3>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                        One recording turned into multiple platform-ready assets.
+                    </p>
                 </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                  <p class="text-xs font-semibold text-slate-900">Pacing</p>
-                  <p class="mt-1 text-[11px] text-slate-600">No ramble</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20">
+                <span class="reveal text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Process</span>
+                <h2 class="reveal delay-1 font-display text-3xl sm:text-4xl md:text-6xl font-bold mt-3 sm:mt-4">How it works</h2>
+            </div>
+            
+            <div class="space-y-4 sm:space-y-6 md:space-y-8">
+                <!-- Step 1 -->
+                <div class="reveal delay-1 timeline-item flex gap-4 sm:gap-6 md:gap-8 items-start">
+                    <div class="timeline-number flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-display font-bold text-lg sm:text-xl md:text-2xl">
+                        1
+                    </div>
+                    <div class="service-card flex-1 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-base sm:text-xl md:text-2xl font-bold leading-snug">You send raw content or recordings</h3>
+                    </div>
                 </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                  <p class="text-xs font-semibold text-slate-900">Signal</p>
-                  <p class="mt-1 text-[11px] text-slate-600">Trust first</p>
+                
+                <!-- Step 2 -->
+                <div class="reveal delay-2 timeline-item flex gap-4 sm:gap-6 md:gap-8 items-start">
+                    <div class="timeline-number flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center font-display font-bold text-lg sm:text-xl md:text-2xl">
+                        2
+                    </div>
+                    <div class="service-card flex-1 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-base sm:text-xl md:text-2xl font-bold leading-snug">I remove filler, tighten structure, and edit</h3>
+                    </div>
                 </div>
-              </div>
+
+                <!-- Step 3 -->
+                <div class="reveal delay-3 timeline-item flex gap-4 sm:gap-6 md:gap-8 items-start">
+                    <div class="timeline-number flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center font-display font-bold text-lg sm:text-xl md:text-2xl">
+                        3
+                    </div>
+                    <div class="service-card flex-1 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+                        <h3 class="text-base sm:text-xl md:text-2xl font-bold leading-snug">You receive finished assets, ready to post</h3>
+                    </div>
+                </div>
             </div>
-          </div>
-          <p class="mt-3 text-xs text-slate-600">Visual is a mock. Your content stays on brand.</p>
         </div>
-      </div>
     </section>
 
-    <!-- Proof cues -->
-    <section id="proof" class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="grid lg:grid-cols-12 gap-6 items-start">
-        <div class="lg:col-span-5">
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">This is for people who think in systems.</h2>
-          <div class="mt-3 space-y-2 text-slate-700">
-            <p>You care about substance.</p>
-            <p>You avoid hype.</p>
-            <p>You want calm execution.</p>
-          </div>
-          <div class="mt-6 rounded-2xl border border-slate-200 bg-white/70 glass p-5 ring-soft reveal">
-            <p class="text-sm font-semibold">What we optimize</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Audio that sounds intentional.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Framing that looks composed.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Captions that read clean.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Edits that keep your meaning.</span></li>
-            </ul>
-          </div>
+    <!-- Best Fit Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal service-card p-6 sm:p-10 md:p-16 lg:p-20 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] text-center relative overflow-hidden">
+                <!-- Decorative elements -->
+                <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                    <div class="absolute top-2 left-2 sm:top-6 sm:left-6 md:top-10 md:left-10 text-indigo-500/20 text-[60px] sm:text-[100px] md:text-[150px] lg:text-[200px] font-serif leading-none quote-mobile">"</div>
+                    <div class="absolute bottom-2 right-2 sm:bottom-6 sm:right-6 md:bottom-10 md:right-10 text-indigo-500/20 text-[60px] sm:text-[100px] md:text-[150px] lg:text-[200px] font-serif leading-none rotate-180 quote-mobile">"</div>
+                </div>
+                
+                <div class="relative z-10">
+                    <span class="text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">Best Fit</span>
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 sm:mt-6 md:mt-8 mb-6 sm:mb-8 md:mb-12 leading-relaxed max-w-3xl mx-auto">
+                        This is for people who already have ideas, experience, or expertise; and want output without managing editors, designers, or content teams.
+                    </p>
+                    <div class="h-px w-20 sm:w-24 md:w-32 bg-gradient-to-r from-transparent via-indigo-500 to-transparent mx-auto mb-6 sm:mb-8 md:mb-12"></div>
+                    <p class="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gradient leading-tight">
+                        "If you already have something to say, I'll help you say it clearly."
+                    </p>
+                </div>
+            </div>
         </div>
-
-        <div class="lg:col-span-7">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Common pattern</p>
-              <p class="mt-2 text-lg font-semibold">You record once. You hesitate to post.</p>
-              <ul class="mt-4 space-y-2 text-sm text-slate-700">
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span><span>Audio feels thin.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span><span>Captions feel loud.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span><span>Pacing feels long.</span></li>
-              </ul>
-            </div>
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Desired state</p>
-              <p class="mt-2 text-lg font-semibold">You post. You stay composed.</p>
-              <ul class="mt-4 space-y-2 text-sm text-slate-700">
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Clear sound.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Readable subtitles.</span></li>
-                <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Strong structure.</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-4 rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p class="text-sm text-slate-600">Risk reduction</p>
-                <p class="mt-1 text-lg font-semibold">You get a repeatable edit style.</p>
-                <p class="mt-2 text-sm text-slate-700">It stays consistent across posts.</p>
-              </div>
-              <div class="flex gap-2">
-                <button id="btnSeeSystem" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">See the system</button>
-                <button id="btnSampleProof" class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
 
-    <!-- System -->
-    <section id="system" class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 md:p-10 reveal">
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-5">
-            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">A calm system. Not a content factory.</h2>
-            <div class="mt-3 space-y-2 text-slate-700">
-              <p>You send one recording.</p>
-              <p>We return clips that feel like you.</p>
-              <p>You approve fast.</p>
+    <!-- Final CTA Section -->
+    <section class="py-16 sm:py-24 md:py-32 px-5 sm:px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="reveal">
+                <span class="text-indigo-400 font-medium tracking-widest uppercase text-xs sm:text-sm">noticed & trusted with less time & energy</span>
+                <h2 class="font-display text-4xl sm:text-5xl md:text-7xl font-bold mt-4 sm:mt-6 mb-8 sm:mb-12">
+                    Ready to <span class="text-gradient">start?</span>
+                </h2>
             </div>
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-              <button id="btnPrimarySystem" class="btn inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-base font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Book a fit call</button>
-              <a class="btn inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-50 focus-ring" href="#work">See examples</a>
+            
+            <div class="reveal delay-1 flex flex-col items-center gap-5 sm:gap-8">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="btn-glow text-white text-base sm:text-lg md:text-xl font-semibold py-4 sm:py-5 md:py-6 px-8 sm:px-10 md:px-14 rounded-full magnetic inline-flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-center">
+                    <span>Book a call</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+                
+                <a href="mailto:hi@hesamsimin.ir" class="text-gray-500 hover:text-white active:text-white transition-colors text-base sm:text-lg flex items-center gap-2 group py-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Hi@HesamSimin.ir
+                </a>
             </div>
-          </div>
-          <div class="lg:col-span-7">
-            <ol class="grid md:grid-cols-2 gap-4">
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 1</p>
-                <p class="mt-2 font-semibold">Quick intake.</p>
-                <p class="mt-1 text-sm text-slate-700">Tone. audience. offer. boundaries.</p>
-              </li>
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 2</p>
-                <p class="mt-2 font-semibold">Edit for authority.</p>
-                <p class="mt-1 text-sm text-slate-700">Clean cuts. tight pacing. stable sound.</p>
-              </li>
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 3</p>
-                <p class="mt-2 font-semibold">Captions that respect you.</p>
-                <p class="mt-1 text-sm text-slate-700">Readable. calm. on brand.</p>
-              </li>
-              <li class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p class="text-xs font-semibold text-slate-600">Step 4</p>
-                <p class="mt-2 font-semibold">Deliver ready-to-post.</p>
-                <p class="mt-1 text-sm text-slate-700">File names. thumbnails. posting notes.</p>
-              </li>
-            </ol>
-
-            <div class="mt-6 grid sm:grid-cols-3 gap-3">
-              <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-semibold">Style guide</p>
-                <p class="mt-1 text-xs text-slate-600">Your rules stay fixed</p>
-              </div>
-              <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-semibold">Version control</p>
-                <p class="mt-1 text-xs text-slate-600">No lost edits</p>
-              </div>
-              <div class="rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-semibold">Slack or email</p>
-                <p class="mt-1 text-xs text-slate-600">Low friction comms</p>
-              </div>
-            </div>
-
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Work examples (visual cards) -->
-    <section id="work" class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">What your posts can look like</h2>
-          <div class="mt-3 space-y-2 text-slate-700">
-            <p>Clean. readable. structured.</p>
-            <p>Still you. just sharper.</p>
-          </div>
+    <!-- Footer -->
+    <footer class="py-8 sm:py-12 px-5 sm:px-6 border-t border-white/10 footer-safe">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-gray-600 text-xs sm:text-sm">
+            <p>&copy; <span id="year"></span> Hesam Simin. All rights reserved.</p>
+            <div class="flex items-center gap-4 sm:gap-6">
+                <a href="https://cal.com/hesamedin-simin/30min" target="_blank" class="hover:text-white active:text-white transition-colors py-1">Book Call</a>
+                <span class="text-gray-800">•</span>
+                <a href="mailto:hi@hesamsimin.ir" class="hover:text-white active:text-white transition-colors py-1">Contact</a>
+            </div>
         </div>
-        <button id="btnSampleWork" class="btn hidden sm:inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-      </div>
+    </footer>
 
-      <div class="mt-6 grid lg:grid-cols-3 gap-4">
-        <article class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-          <div class="p-5 border-b border-slate-200">
-            <p class="text-sm font-semibold">Talking head clip</p>
-            <p class="mt-1 text-xs text-slate-600">Better pacing. better sound.</p>
-          </div>
-          <div class="p-5">
-            <div class="rounded-2xl bg-slate-950 aspect-[16/9] relative overflow-hidden">
-              <div class="absolute inset-0 opacity-90" aria-hidden="true">
-                <svg class="h-full w-full" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#0b1220"/>
-                      <stop offset="1" stop-color="#111827"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="800" height="450" fill="url(#c1)"/>
-                  <circle cx="260" cy="205" r="85" fill="#0f172a" opacity="0.95" />
-                  <rect x="400" y="120" width="320" height="26" rx="13" fill="#e2e8f0" opacity="0.22"/>
-                  <rect x="400" y="160" width="270" height="18" rx="9" fill="#e2e8f0" opacity="0.18"/>
-                  <rect x="60" y="340" width="680" height="56" rx="16" fill="#0b1220" opacity="0.85"/>
-                  <rect x="88" y="360" width="480" height="16" rx="8" fill="#e2e8f0" opacity="0.75"/>
-                </svg>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Captions on</span>
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Brand safe</span>
-              </div>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Removes dead air.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Levels vocal tone.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Highlights key lines.</span></li>
-            </ul>
-          </div>
-        </article>
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        <article class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-          <div class="p-5 border-b border-slate-200">
-            <p class="text-sm font-semibold">Podcast repurpose</p>
-            <p class="mt-1 text-xs text-slate-600">Clips with context. not noise.</p>
-          </div>
-          <div class="p-5">
-            <div class="rounded-2xl bg-slate-950 aspect-[16/9] relative overflow-hidden">
-              <div class="absolute inset-0 opacity-90" aria-hidden="true">
-                <svg class="h-full w-full" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="800" height="450" fill="#0b1220"/>
-                  <rect x="50" y="55" width="700" height="90" rx="18" fill="#111827"/>
-                  <rect x="80" y="86" width="240" height="18" rx="9" fill="#e2e8f0" opacity="0.25"/>
-                  <rect x="80" y="112" width="360" height="14" rx="7" fill="#e2e8f0" opacity="0.18"/>
-                  <rect x="50" y="170" width="700" height="170" rx="24" fill="#111827"/>
-                  <path d="M90 255c25-40 45 40 70 0s45 40 70 0 45 40 70 0 45 40 70 0 45 40 70 0 45 40 70 0" stroke="#6366f1" stroke-width="6" fill="none" opacity="0.65"/>
-                  <rect x="50" y="360" width="700" height="60" rx="18" fill="#0f172a"/>
-                  <rect x="80" y="382" width="520" height="14" rx="7" fill="#e2e8f0" opacity="0.75"/>
-                </svg>
-              </div>
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Context title</span>
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Waveform</span>
-              </div>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Starts with the point.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Adds light framing.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Keeps it professional.</span></li>
-            </ul>
-          </div>
-        </article>
+        // Cursor glow effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
 
-        <article class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden reveal">
-          <div class="p-5 border-b border-slate-200">
-            <p class="text-sm font-semibold">Silent scroller friendly</p>
-            <p class="mt-1 text-xs text-slate-600">Captions that people finish.</p>
-          </div>
-          <div class="p-5">
-            <div class="rounded-2xl bg-slate-950 aspect-[16/9] relative overflow-hidden">
-              <div class="absolute inset-0 opacity-90" aria-hidden="true">
-                <svg class="h-full w-full" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="c2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#111827"/>
-                      <stop offset="1" stop-color="#0b1220"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="800" height="450" fill="url(#c2)"/>
-                  <rect x="80" y="70" width="640" height="70" rx="18" fill="#0f172a" opacity="0.95"/>
-                  <rect x="110" y="95" width="520" height="20" rx="10" fill="#e2e8f0" opacity="0.75"/>
-                  <rect x="80" y="160" width="640" height="70" rx="18" fill="#0f172a" opacity="0.78"/>
-                  <rect x="110" y="185" width="420" height="20" rx="10" fill="#e2e8f0" opacity="0.65"/>
-                  <rect x="80" y="250" width="640" height="70" rx="18" fill="#0f172a" opacity="0.60"/>
-                  <rect x="110" y="275" width="360" height="20" rx="10" fill="#e2e8f0" opacity="0.55"/>
-                  <rect x="80" y="350" width="240" height="40" rx="16" fill="#6366f1" opacity="0.75"/>
-                  <rect x="110" y="364" width="180" height="12" rx="6" fill="#ffffff" opacity="0.8"/>
-                </svg>
-              </div>
-              <div class="absolute bottom-3 right-3">
-                <span class="text-[11px] text-slate-200 bg-white/10 border border-white/10 rounded-full px-3 py-1">Readable</span>
-              </div>
-            </div>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Short lines.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Strong hierarchy.</span></li>
-              <li class="flex gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600" aria-hidden="true"></span><span>Minimal motion.</span></li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
 
-    <!-- Offer -->
-    <section class="mx-auto max-w-6xl px-4 pb-12">
-      <div class="grid lg:grid-cols-12 gap-6 items-start">
-        <div class="lg:col-span-5">
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Choose the pace you can sustain</h2>
-          <div class="mt-3 space-y-2 text-slate-700">
-            <p>Consistency compounds.</p>
-            <p>We keep it manageable.</p>
-          </div>
-          <div class="mt-6 rounded-2xl border border-slate-200 bg-white/70 glass p-5 ring-soft reveal">
-            <p class="text-sm font-semibold">Included in every plan</p>
-            <ul class="mt-3 space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Audio cleanup.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Caption styling.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>Brand-safe look.</span></li>
-              <li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span><span>One round of revisions.</span></li>
-            </ul>
-          </div>
-        </div>
+        // Initial check
+        revealOnScroll();
+        
+        // Check on scroll with throttle
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    revealOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
 
-        <div class="lg:col-span-7">
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Starter</p>
-              <p class="mt-2 text-xl font-semibold">4 clips per month</p>
-              <p class="mt-2 text-sm text-slate-700">For a steady signal.</p>
-              <button data-plan="Starter" class="btn mt-5 w-full inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Get details</button>
-            </div>
-            <div class="rounded-3xl border border-indigo-200 bg-indigo-50 ring-soft p-6 reveal">
-              <p class="text-sm text-indigo-700">Operator</p>
-              <p class="mt-2 text-xl font-semibold">8 clips per month</p>
-              <p class="mt-2 text-sm text-slate-700">For weekly momentum.</p>
-              <button data-plan="Operator" class="btn mt-5 w-full inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Get details</button>
-            </div>
-            <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-              <p class="text-sm text-slate-600">Authority</p>
-              <p class="mt-2 text-xl font-semibold">12 clips per month</p>
-              <p class="mt-2 text-sm text-slate-700">For strong visibility.</p>
-              <button data-plan="Authority" class="btn mt-5 w-full inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Get details</button>
-            </div>
-          </div>
+        // Magnetic button effect
+        const magneticElements = document.querySelectorAll('.magnetic');
+        
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+            });
+        });
 
-          <div class="mt-4 rounded-3xl border border-slate-200 bg-white ring-soft p-6 reveal">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p class="text-sm text-slate-600">Not sure?</p>
-                <p class="mt-1 text-lg font-semibold">Start with a sample edit.</p>
-                <p class="mt-2 text-sm text-slate-700">One clip. your footage. our style.</p>
-              </div>
-              <div class="flex gap-2">
-                <button id="btnSampleOffer" class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-                <button id="btnCallOffer" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Book a call</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="mx-auto max-w-6xl px-4 pb-16">
-      <div class="rounded-3xl border border-slate-200 bg-white ring-soft p-6 md:p-10 reveal">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">FAQ</h2>
-            <div class="mt-3 space-y-2 text-slate-700">
-              <p>Short answers.</p>
-              <p>Clear boundaries.</p>
-            </div>
-          </div>
-          <button id="btnSampleFAQ" class="btn inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-5 py-3 text-base font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Get a sample edit</button>
-        </div>
-
-        <div class="mt-8 grid lg:grid-cols-2 gap-4">
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">Will this feel like influencer content?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>No.</p>
-              <p>We keep motion minimal.</p>
-              <p>We protect your tone.</p>
-            </div>
-          </div>
-
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">What do you need from me?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>One recording.</p>
-              <p>Any notes you care about.</p>
-              <p>We handle the rest.</p>
-            </div>
-          </div>
-
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">How fast is turnaround?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>Most clips ship in 48 to 72 hours.</p>
-              <p>Cadence stays predictable.</p>
-            </div>
-          </div>
-
-          <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <button class="faq-btn w-full flex items-start justify-between gap-4 text-left" type="button" aria-expanded="false">
-              <span class="font-semibold">Do you promise outcomes?</span>
-              <span class="mt-1 text-slate-500" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-panel mt-3 hidden text-sm text-slate-700 space-y-2">
-              <p>No.</p>
-              <p>We promise execution quality.</p>
-              <p>You keep control of the message.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
-          <div class="grid md:grid-cols-12 gap-6 items-center">
-            <div class="md:col-span-8">
-              <p class="text-sm text-slate-600">Next step</p>
-              <p class="mt-2 text-xl md:text-2xl font-semibold">Send one clip. Get one sample edit.</p>
-              <p class="mt-3 text-sm text-slate-700">You decide if the style fits.</p>
-            </div>
-            <div class="md:col-span-4 flex flex-col gap-3">
-              <button id="btnPrimaryBottom" class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-base font-semibold text-white hover:bg-slate-800 focus-ring" type="button">Request a sample</button>
-              <button id="btnCallBottom" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold hover:bg-slate-50 focus-ring" type="button">Book a fit call</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- Sticky CTA (mobile) -->
-  <div class="fixed inset-x-0 bottom-0 z-50 md:hidden border-t border-slate-200 bg-white/90 glass">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex gap-2">
-      <button id="btnStickySample" class="btn flex-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Sample</button>
-      <button id="btnStickyCall" class="btn flex-1 inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-ring" type="button">Call</button>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
-    <div class="absolute inset-0 bg-slate-900/50"></div>
-    <div class="relative mx-auto max-w-xl px-4 py-10">
-      <div class="rounded-3xl border border-slate-200 bg-white ring-soft overflow-hidden">
-        <div class="p-5 md:p-6 border-b border-slate-200 flex items-start justify-between gap-4">
-          <div>
-            <p id="modalTitle" class="text-lg font-semibold">Request a sample edit</p>
-            <p id="modalSubtitle" class="mt-1 text-sm text-slate-600">Short form. quick reply.</p>
-          </div>
-          <button id="btnCloseModal" class="btn rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button" aria-label="Close">
-            Close
-          </button>
-        </div>
-
-        <form id="leadForm" class="p-5 md:p-6" autocomplete="on">
-          <div class="grid md:grid-cols-2 gap-4">
-            <label class="block">
-              <span class="text-sm font-semibold">Name</span>
-              <input name="name" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="Your name" required />
-            </label>
-            <label class="block">
-              <span class="text-sm font-semibold">Email</span>
-              <input name="email" type="email" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="you@company.com" required />
-            </label>
-            <label class="block md:col-span-2">
-              <span class="text-sm font-semibold">LinkedIn profile</span>
-              <input name="linkedin" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="https://www.linkedin.com/in/..." />
-            </label>
-            <label class="block md:col-span-2">
-              <span class="text-sm font-semibold">What are you posting right now?</span>
-              <select name="type" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring">
-                <option value="talking-head">Talking head</option>
-                <option value="podcast">Podcast clips</option>
-                <option value="tutorial">Tutorials</option>
-                <option value="mixed">Mixed</option>
-              </select>
-            </label>
-            <label class="block md:col-span-2">
-              <span class="text-sm font-semibold">One constraint we should respect</span>
-              <input name="constraint" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus-ring" placeholder="No flashy captions. keep it calm." />
-            </label>
-          </div>
-
-          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p class="text-sm font-semibold">Prefer a call?</p>
-            <p class="mt-1 text-sm text-slate-700">We can do 15 minutes.</p>
-            <div class="mt-3 flex flex-col sm:flex-row gap-2">
-              <button id="btnCopyLink" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-slate-50 focus-ring" type="button">Copy scheduling link</button>
-              <a id="scheduleLink" class="btn inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus-ring" href="#" target="_blank" rel="noreferrer">Open scheduling</a>
-            </div>
-            <p id="copyHint" class="mt-2 text-xs text-slate-600 hidden">Copied.</p>
-          </div>
-
-          <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <button class="btn inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-base font-semibold text-white hover:bg-slate-800 focus-ring" type="submit">Send</button>
-            <button id="btnCancel" class="btn inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 text-base font-semibold hover:bg-slate-50 focus-ring" type="button">Cancel</button>
-          </div>
-
-          <p class="mt-4 text-xs text-slate-600">This demo stores your submission in your browser only.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast -->
-  <div id="toast" class="fixed right-4 top-4 z-[200] hidden">
-    <div class="rounded-2xl border border-slate-200 bg-white ring-soft px-4 py-3">
-      <p id="toastText" class="text-sm font-semibold">Saved.</p>
-      <p class="mt-1 text-xs text-slate-600">We will reply soon.</p>
-    </div>
-  </div>
-
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-10">
-      <div class="grid md:grid-cols-12 gap-6">
-        <div class="md:col-span-6">
-          <p class="font-semibold">Calm Authority Video</p>
-          <p class="mt-2 text-sm text-slate-700">Editing that protects credibility.</p>
-          <p class="mt-2 text-sm text-slate-700">Built for serious LinkedIn operators.</p>
-        </div>
-        <div class="md:col-span-3">
-          <p class="text-sm font-semibold">Links</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-700">
-            <li><a class="hover:text-slate-900" href="#proof">Proof</a></li>
-            <li><a class="hover:text-slate-900" href="#system">System</a></li>
-            <li><a class="hover:text-slate-900" href="#work">Examples</a></li>
-            <li><a class="hover:text-slate-900" href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="md:col-span-3">
-          <p class="text-sm font-semibold">Contact</p>
-          <p class="mt-3 text-sm text-slate-700">Email: <a class="underline hover:text-slate-900" href="mailto:hello@calmauthority.video">hello@calmauthority.video</a></p>
-          <p class="mt-2 text-xs text-slate-500">Replace with your real email.</p>
-        </div>
-      </div>
-      <div class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-slate-500">
-        <p>© <span id="year"></span> Calm Authority Video</p>
-        <p>Privacy friendly. No trackers in this demo.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Config
-    const SCHEDULING_URL = "https://calendly.com/your-link/15min";
-
-    // Elements
-    const modal = document.getElementById('modal');
-    const leadForm = document.getElementById('leadForm');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSubtitle = document.getElementById('modalSubtitle');
-    const scheduleLink = document.getElementById('scheduleLink');
-    const copyHint = document.getElementById('copyHint');
-    const toast = document.getElementById('toast');
-    const toastText = document.getElementById('toastText');
-
-    // Init
-    document.getElementById('year').textContent = new Date().getFullYear();
-    scheduleLink.href = SCHEDULING_URL;
-
-    // Reveal on scroll
-    const reveals = Array.from(document.querySelectorAll('.reveal'));
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add('is-in');
-      }
-    }, { threshold: 0.12 });
-    reveals.forEach(el => io.observe(el));
-
-    // Modal helpers
-    let lastFocus = null;
-    function openModal(mode, meta = {}) {
-      lastFocus = document.activeElement;
-      modal.classList.remove('hidden');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      const title = mode === 'call' ? 'Book a fit call' : 'Request a sample edit';
-      const subtitle = mode === 'call' ? 'We keep it short. We keep it practical.' : 'Send one clip. Get one sample edit.';
-
-      modalTitle.textContent = title;
-      modalSubtitle.textContent = subtitle;
-
-      const plan = meta.plan || '';
-      const constraint = leadForm.elements.constraint;
-      if (plan) {
-        constraint.value = `Plan interest: ${plan}. Constraint: `;
-      }
-
-      // Focus first input
-      setTimeout(() => {
-        leadForm.querySelector('input[name="name"]').focus();
-      }, 50);
-    }
-
-    function closeModal() {
-      modal.classList.add('hidden');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      copyHint.classList.add('hidden');
-      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    }
-
-    function showToast(message) {
-      toastText.textContent = message;
-      toast.classList.remove('hidden');
-      setTimeout(() => toast.classList.add('hidden'), 2200);
-    }
-
-    // Open modal buttons
-    const openSampleButtons = [
-      'btnSampleTop','btnSecondaryHero','btnSampleProof','btnSampleWork','btnSampleOffer','btnSampleFAQ','btnPrimaryBottom','btnStickySample'
-    ].map(id => document.getElementById(id)).filter(Boolean);
-
-    openSampleButtons.forEach(btn => btn.addEventListener('click', () => openModal('sample')));
-
-    const openCallButtons = [
-      'btnCallTop','btnPrimaryHero','btnPrimarySystem','btnCallOffer','btnCallBottom','btnStickyCall'
-    ].map(id => document.getElementById(id)).filter(Boolean);
-
-    openCallButtons.forEach(btn => btn.addEventListener('click', () => openModal('call')));
-
-    // Plan buttons
-    document.querySelectorAll('button[data-plan]').forEach(btn => {
-      btn.addEventListener('click', () => openModal('sample', { plan: btn.getAttribute('data-plan') }));
-    });
-
-    // System jump
-    document.getElementById('btnSeeSystem').addEventListener('click', () => {
-      document.getElementById('system').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // Close actions
-    document.getElementById('btnCloseModal').addEventListener('click', closeModal);
-    document.getElementById('btnCancel').addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('bg-slate-900/50')) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-    });
-
-    // Copy link
-    document.getElementById('btnCopyLink').addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(SCHEDULING_URL);
-        copyHint.classList.remove('hidden');
-        showToast('Link copied');
-      } catch {
-        copyHint.classList.remove('hidden');
-        copyHint.textContent = 'Copy failed. Use the open button.';
-      }
-    });
-
-    // FAQ toggles
-    document.querySelectorAll('.faq-item').forEach(item => {
-      const btn = item.querySelector('.faq-btn');
-      const panel = item.querySelector('.faq-panel');
-      const icon = btn.querySelector('span[aria-hidden="true"]');
-      btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        panel.classList.toggle('hidden');
-        icon.textContent = isOpen ? '+' : 'x';
-      });
-    });
-
-    // Form submission
-    leadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(leadForm).entries());
-      data.mode = modalTitle.textContent.includes('call') ? 'call' : 'sample';
-      data.timestamp = new Date().toISOString();
-
-      const key = 'calmAuthorityLeads';
-      const existing = JSON.parse(localStorage.getItem(key) || '[]');
-      existing.unshift(data);
-      localStorage.setItem(key, JSON.stringify(existing).slice(0, 200000));
-
-      showToast('Saved in your browser');
-      leadForm.reset();
-      closeModal();
-    });
-
-    // UTM capture
-    (function captureUtm() {
-      const params = new URLSearchParams(location.search);
-      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
-      const found = {};
-      let any = false;
-      utmKeys.forEach(k => {
-        if (params.get(k)) { found[k] = params.get(k); any = true; }
-      });
-      if (any) localStorage.setItem('calmAuthorityUTM', JSON.stringify(found));
-    })();
-  </script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
